@@ -1,0 +1,2330 @@
+/* ---------- Главная страница ---------- */
+
+/* Подключение шрифтов  */
+@font-face {
+    font-family: Gramatika-Bold;
+    src: url('../assets/fonts/Gramatika-Bold.ttf');
+}
+
+@font-face {
+    font-family: Gramatika-Regular;
+    src: url('../assets/fonts/Gramatika-Regular.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url('../assets/fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Medium;
+    src: url('../assets/fonts/Montserrat-Medium.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Semibold;
+    src: url('../assets/fonts/Montserrat-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url('../assets/fonts/Montserrat-Bold.ttf');
+}
+
+/* Базовые настройки */
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: 0.5s;
+}
+
+/* Заливка фона */
+body {
+    background-color: #FFF8E4;
+    overflow-x: hidden;
+}
+
+.mainPage {
+    background-color: #4E3822;
+    height: 4760px;
+}
+
+.beige {
+    background-color: #FFF8E4;
+    padding-top: 80px;
+    padding-bottom: 120px;
+    margin-bottom: 80px;
+}
+
+/* Контейнер 1300px */
+.cont {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили заголовоков */
+.title, .titleWhite {
+    font-family: Montserrat-Bold;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #4E3822;
+}
+
+.titleWhite {
+    color: white;
+}
+
+/* Шапка */
+header {
+    background-color: #4E3822;
+}
+
+.headerBlock {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainPage .headerBlock {
+    padding-bottom: 30px;
+}
+
+.logo {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.logo h1 {
+    font-weight: normal;
+    font-family: Gramatika-Bold;
+    color: #F4E3B2;
+    font-size: 32px;
+    letter-spacing: 10%;
+    text-transform: uppercase;
+}
+
+header nav {
+    display: flex;
+    gap: 60px;
+}
+
+nav a {
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    color: #F4E3B2;
+}
+
+nav a:hover {
+    transform: scale(0.95);
+}
+
+.options {
+    display: flex;
+    gap: 16px;
+}
+
+.option {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #F4E3B2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.options svg {
+    padding: 4px;
+}
+
+.option:hover {
+    background-color: #F4E3B2;
+}
+
+.option:hover svg {
+    fill: #4E3822;
+}
+
+/* Баннер */
+.banner {
+    position: relative;
+    margin-bottom: 120px;
+}
+
+.banner img {
+    width: 1200px;
+    border-radius: 20px;
+}
+
+.bannerText {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bannerText h1 {
+    font-weight: normal;
+    font-size: 50px;
+    color: white;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-family: Gramatika-Bold;
+    width: 520px;
+}
+
+.bannerText p {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-family: Montserrat-Regular;
+    color: white;
+    width: 440px;
+}
+
+.bannerText a {
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid white;
+    width: fit-content;
+}
+
+.bannerText a:hover {
+    background-color: transparent;
+    color: white;
+}
+
+/* Акции */
+.advantages {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 100px;
+}
+
+.advant {
+    width: 390px;
+    background-color: #60462C;
+    border-radius: 20px;
+    padding-bottom: 20px;
+    border: 1px solid #4E3822;
+}
+
+.advant:hover {
+    border: 1px solid #F4E3B2;
+}
+
+.advant img {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+}
+
+.advant h1 {
+    font-weight: normal;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Montserrat-Semibold;
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+.advant p {
+    color: white;
+    font-family: Montserrat-Regular;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+/* Каталог */
+.catalog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.catalogHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.catalogHeader select {
+    background-color: transparent;
+    font-size: 20px;
+    padding: 5px 10px;
+    color: #4E3822;
+    border: 2px solid #4E3822;
+    border-radius: 30px;
+    font-family: Montserrat-Medium;
+    cursor: pointer;
+}
+
+.catalogBlock, .catalogCards {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 390px;
+}
+
+.card:nth-child(n+4) {
+    margin-top: 20px;
+}
+
+.item {
+    width: 100%;
+    background-color: #4E3822;
+    border-radius: 20px;
+    padding: 8px 8px 20px 8px;
+}
+
+.item img {
+    width: 100%;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.item h1 {
+    font-weight: normal;
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    color: #FFF8E4;
+    margin-left: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.item p {
+    font-family: Montserrat-Regular;
+    color: #FFF8E4;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.price {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price h2 {
+    font-weight: normal;
+    color: #FFF8E4;
+    font-family: Montserrat-Semibold;
+    font-size: 26px;
+}
+
+.price p {
+    padding: 5px 10px;
+    border: 1px solid #FFF8E4;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-bottom: 0;
+}
+
+.price p:hover {
+    background-color: #FFF8E4;
+    color: #4E3822;
+}
+
+.buy {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+}
+
+.buy button {
+    font-family: Montserrat-Medium;
+    font-size: 26px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-self: center;
+    background-color: #4E3822;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    color: #FFF8E4;
+    cursor: pointer;
+}
+
+.item:hover, .buy button:hover, .buy svg:hover {
+    background-color: #60462C;
+}
+
+.buy svg {
+    height: 100%;
+    width: fit-content;
+    padding: 5px;
+    background-color: #4E3822;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.allItems {
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    color: #4E3822;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.allItems:hover {
+    left: 5px;
+}
+
+/* Партнеры */
+.partners {
+    padding-top: 60px;
+    padding-bottom: 160px;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.partners img {
+    height: 60px;
+}
+
+.partners img:first-child {
+    height: 100px;
+}
+
+/* Часто задаваемые вопросы */
+.faq {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* .questionBlock {} */
+
+.question {
+    display: flex;
+    padding: 16px 20px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4E3822;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.question:hover {
+    background-color: #60462C;
+}
+
+.faq .questionBlock:first-child .question {
+    border-radius: 15px 15px 0 0;
+}
+
+.faq .questionBlock:first-child .question svg {
+    transform: rotate(180deg);
+}
+
+.question h1 {
+    font-weight: normal;
+    color: #FFF8E4;
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+}
+
+.question svg {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.question:hover svg {
+    top: 5px;
+} 
+
+.faq .questionBlock:first-child .question:hover svg {
+    top: -5px;
+}
+
+.answer {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 0 0 15px 15px;
+    border: 2px solid #4E3822;
+}
+
+.answer p {
+    color: #4E3822;
+    font-size: 18px;
+    font-family: Montserrat-Regular;
+    line-height: 24px;
+}
+
+/* Акции */
+.promotionsTitle {
+    text-align: center;
+}
+
+.promotionsBlock {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 200px;
+}
+
+.promotions {
+    display: flex;
+    gap: 40px;
+}
+
+.prom {
+    width: 860px;
+    height: 260px;
+    background-color: #60462C;
+    border-radius: 20px;
+    display: flex;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.prom:hover {
+    transform: scale(1.03);
+}
+
+.prom img {
+    width: 50%;
+    border-radius: 20px 0 0 20px;
+}
+
+.promText {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.promInfo h1 {
+    font-weight: normal;
+    color: white;
+    font-size: 24px;
+    font-family: Montserrat-Semibold;
+    margin-bottom: 10px;
+}
+
+.promInfo p {
+    font-size: 18px;
+    font-family: Montserrat-Regular;
+    color: white;
+    line-height: 26px;
+}
+
+.promText h2 {
+    font-weight: normal;
+    font-size: 20px;
+    color: white;
+    font-family: Montserrat-Medium;
+    align-self: self-end;
+}
+
+.slider {
+    display: flex;
+    gap: 10px;
+}
+
+.slider svg {
+    width: 60px;
+    height: 30px;
+    padding: 5px 10px;
+    background-color: #fff8e4b3;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.slider svg:last-child {
+    transform: rotate(180deg);
+}
+
+.slider svg:hover {
+    background-color: #FFF8E4;
+}
+
+/* Подвал */
+footer {
+    background-color: #4E3822;
+    display: block;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.mainPage footer, .footerBlock {
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyright h1 {
+    color: white;
+}
+
+.copyright p {
+    color: white;
+    font-family: Montserrat-Semibold;
+    font-size: 24px;
+    width: 320px;
+    margin-top: 40px;
+}
+
+footer nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+footer nav a {
+    color: white;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.contact h1 {
+    margin-bottom: 10px;
+    color: white;
+    font-family: Montserrat-Semibold;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.contact a, .contact p {
+    color: white;
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    display: block;
+}
+
+.phone a:hover, .email a:hover {
+    transform: scale(0.95);
+}
+
+/* ---------- Конец главной страницы ---------- */
+
+
+/* ---------- Каталог ---------- */
+.catalogPage header {
+    margin-bottom: 60px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+}
+
+.search {
+    display: flex;
+    gap: 20px;
+    padding: 5px 15px;
+    border: 2px solid #4E3822;
+    border-radius: 30px;
+}
+
+.search input {
+    background-color: transparent;
+    font-size: 20px;
+    color: #4E3822;
+    font-family: Montserrat-Medium;
+    border: none;
+    outline: none;
+}
+
+.search input::placeholder {
+    color: #4e3822bd;
+}
+
+.search img {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.search img:hover {
+    transform: scale(0.9);
+}
+
+.catalogPage .catalogBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.catalogCards {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.categoryTitle {
+    font-weight: normal;
+    color: #FFF8E4;
+    background-color: #4E3822;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 28px;
+    font-family: Montserrat-Medium;
+}
+/* ---------- Конец каталога ---------- */
+
+/* ---------- Карточка товара ---------- */
+.itemPage header {
+    margin-bottom: 80px;
+}
+
+.itemTitle {
+    color: #4E3822;
+    font-family: Gramatika-Bold;
+    font-size: 40px;
+    padding-bottom: 30px;
+}
+
+.itemBlock {
+    display: flex;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.itemGallery {
+    border-radius: 20px;
+    background-color: #4E3822;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.itemImage {
+    position: relative;
+}
+
+.itemImage img {
+    border-radius: 20px;
+    width: 600px;
+}
+
+.itemPage .slider {
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.itemPage .slider svg {
+    width: auto;
+    padding: 8px;
+}
+
+.itemImages {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+}
+
+.itemImages img {
+    width: 100px;
+    height: fit-content;
+    opacity: 50%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.itemImages img:first-child {
+    opacity: 100%;
+}
+
+.itemImages img:hover {
+    opacity: 100%;
+}
+
+.itemBuy {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    /* gap: 10px; */
+}
+
+.itemBuy a {
+    width: 100%;
+    color: #FFF8E4;
+    background-color: #4E3822;
+    border-radius: 10px;
+    font-family: Montserrat-Medium;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.itemBuy a:hover, .itemBuy svg:hover {
+    background-color: #60462C;
+}
+
+.itemBuy svg {
+    width: 54px;
+    height: 54px;
+    background-color: #4E3822;
+    padding: 5px;
+    border-radius: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.itemInfo {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.itemInfo p {
+    font-size: 20px;
+    line-height: 30px;
+    font-family: Montserrat-Regular;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.characteristics {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 20px;
+}
+
+.char {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    width: 100%;
+    align-items: center;
+}
+
+.char h2 {
+    font-weight: normal;
+    font-family: Montserrat-Medium;
+    font-size: 20px;
+    color: #4E3822;
+}
+
+.charLine {
+    height: 2px;
+    flex: 1;
+    border-radius: 10px;
+    background-color: #4E3822;
+}
+
+/* Оставить отзыв */
+.myReview {
+    margin-top: 40px;
+    margin-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.myReview h1 {
+    font-weight: normal;
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    color: #4E3822;
+}
+
+.rating {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.stars {
+    display: flex;
+    gap: 5px;
+}
+
+.stars svg:hover {
+    fill: #4E3822;
+    cursor: pointer;
+}
+
+.myReview textarea {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    width: 600px;
+    height: 200px;
+    border: 2px solid #4E3822;
+    color: #4E3822;
+    padding: 10px;
+    font-size: 18px;
+    font-family: Montserrat-Regular;
+}
+
+.myReview textarea::placeholder {
+    color: #4e3822bc;
+}
+
+.myReview button {
+    font-size: 24px;
+    color: #FFF8E4;
+    background-color: #4E3822;
+    font-family: Montserrat-Medium;
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 2px solid #4E3822;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.myReview button:hover {
+    background-color: transparent;
+    color: #4E3822;
+}
+
+/* Отзывы */
+.reviews {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 120px;
+    gap: 20px;
+}
+
+.review {
+    background-color: #FFFAEC;
+    border-radius: 20px;
+    padding: 30px;
+    border: 3px solid #4E3822;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.name img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.name h1 {
+    font-family: Gramatika-Bold;
+    color: #4E3822;
+    font-size: 32px;
+    font-weight: normal;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.rate {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    background-color: #4E3822;
+    border-radius: 30px;
+    border: 1px solid #FFF8E4;
+}
+
+.rate:hover {
+    border: 1px solid #FFF8E4;
+}
+
+.review p {
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4E3822;
+}
+
+.rate p {
+    font-family: Montserrat-Medium;
+    font-size: 18px;
+    color: #FFF8E4;
+}
+
+/* Похожие товары  */
+.itemPage .catalogCards {
+    margin-top: 40px;
+    margin-bottom: 120px;
+}
+
+/* ---------- Конец "Карточка товара" ---------- */
+
+
+/* ---------- Форма регистрации ---------- */
+.regPage main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.regPage main h1 {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.reg {
+    background-color: #60462C;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 680px;
+}
+
+.reg .field {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reg .field label {
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+    color: #FFF8E4;
+}
+
+.reg .field input, .reg .field select {
+    border: 1px solid #FFF8E4;
+    border-radius: 10px;
+    color: #FFF8E4;
+    padding: 8px 16px;
+    background-color: #4E3822;
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    outline: none;
+}
+
+.reg .field select {
+    cursor: pointer;
+}
+
+.reg .field input::placeholder {
+    color: #FFF8E4;
+    opacity: 50%;
+}
+
+.regButtons {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+}
+
+.regButtons button {
+    width: 100%;
+    color: #4E3822;
+    background-color: #FFF8E4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #FFF8E4;
+    border-radius: 10px;
+    font-family: Montserrat-Semibold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.regButtons button:hover {
+    background-color: transparent;
+    color: #FFF8E4;
+}
+
+.regPage main p {
+    margin-bottom: 120px;
+    color: #60462C;
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+}
+
+.regPage main p a {
+    font-family: Montserrat-Semibold;
+    color: #60462C;
+}
+
+.regPage main p a:hover {
+    text-decoration: underline;
+}
+/* ---------- Конец формы регистрации ---------- */
+
+
+/* ---------- Корзина ---------- */
+.cartPage .title {
+    text-align: center;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.cartItem {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartItemBlock {
+    display: flex;
+    gap: 20px;
+}
+
+.cartItemBlock img, .userReviewBodyBlock img {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.cartItemInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cartItemInfo h1, .userReviewName h1 {
+    font-weight: normal;
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    color: #4E3822;
+    cursor: pointer;
+}
+
+.cartItemPrice {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.cartItemPrice p, .orderPage .cartItemInfo p {
+    color: #4E3822;
+    font-family: Montserrat-Semibold;
+    font-size: 28px;
+}
+
+.cartItemQuanity {
+    display: flex;
+    gap: 20px;
+    border-radius: 30px;
+}
+
+.cartItemQuanity .quanity {
+    background-color: #4E3822;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartItemQuanity .quanity button {
+    background-color: transparent;
+    border: none;
+    font-family: Montserrat-Regular;
+    font-size: 24px;
+    color: #FFF8E4;
+    cursor: pointer;
+}
+
+.cartItemQuanity h2 {
+    font-weight: normal;
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    color: #4E3822;
+}
+
+.cartItemOptions, .userReviewOptions {
+    display: flex;
+    gap: 10px;
+    height: 40px;
+}
+
+.cartItemOptions a:first-child, .userReviewOptions a:first-child {
+    color: #FFF8E4;
+    background-color: #4E3822;
+    border: 2px solid #4E3822;
+    font-family: Montserrat-Medium;
+    font-size: 20px;
+    border-radius: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.cartItemOptions a:first-child:hover, .userReviewOptions a:first-child:hover  {
+    background-color: transparent;
+    color: #4E3822;
+}
+
+.cartItemOptions svg, .userReviewOptions svg {
+    height: 100%;
+    width: 40px;
+    padding: 8px;
+    border: 1px solid #FF0000;
+    border-radius: 10px;
+}
+
+.cartItemOptions svg:hover, .userReviewOptions svg:hover {
+    background-color: #FF0000;
+    fill: #FFF8E4;
+}
+
+ .separateLine {
+    height: 1px;
+    width: 100%;
+    background-color: #4E3822;
+}
+
+.cartPage header {
+    margin-bottom: 120px;
+}
+
+.totalCost {
+    width: 100%;
+    background-color: #4E3822;
+    border-radius: 20px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 200px;
+}
+
+.totalCost h1 {
+    font-weight: normal;
+    font-family: Montserrat-Medium;
+    color: #FFF8E4;
+    font-size: 24px;
+}
+
+.totalCost h1 span {
+    font-family: Montserrat-Semibold;
+}
+
+.totalCost button {
+    background-color: #60462C;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+    border: 1px solid #60462C;
+    color: #FFF8E4;
+    cursor: pointer;
+}
+
+.totalCost button:hover {
+    border: 1px solid #FFF8E4;
+}
+/* ---------- Конец "Корзина" ---------- */
+
+
+/* ---------- Оформление заказа ---------- */
+.orderPage .title {
+    text-align: left;
+}
+
+.orderPage .cartItem h2 {
+    font-weight: normal;
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    color: #FFF8E4;
+    background-color: #4E3822;
+    padding: 5px 15px;
+    border-radius: 30px;
+}
+
+.orderOptions {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.orderOptions form {
+    display: flex;
+}
+
+.orderOptions button {
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+    color: #4E3822;
+    border: 1px solid #4E3822;
+    padding: 10px 20px;
+    background-color: #FFF8E4;
+    cursor: pointer;
+}
+
+.orderOptions button:hover {
+    background-color: #4E3822;
+    color: #FFF8E4;
+}
+
+.orderOptions button:first-child {
+    background-color: #4E3822;
+    color: #FFF8E4;
+    border-radius: 10px 0 0 10px;
+}
+
+.orderOptions button:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.orderForm {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.orderAddress, .orderInfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.orderField {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.orderField label {
+    font-size: 24px;
+    color: #4E3822;
+    font-family: Montserrat-Medium;
+}
+
+.orderField input, .orderField select {
+    padding: 8px 16px;
+    border: 1px solid #60462C;
+    border-radius: 10px;
+    color: #4E3822;
+    font-family: Montserrat-Regular;
+    font-size: 20px;
+    background-color: #FFF8E4;
+    width: 100%;
+    outline: none;
+}
+
+.orderDate {
+    display: flex;
+    gap: 10px;
+}
+
+.orderDate input, .orderDate select {
+    width: 50%;
+}
+
+.orderForm input::placeholder {
+    color: #4E3822;
+    opacity: 70%;
+}
+
+.orderField p {
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    padding: 8px 20px;
+    background-color: #4E3822;
+    border-radius: 30px;
+    color: #FFF8E4;
+    width: fit-content;
+}
+
+.confirmOrder {
+    margin-bottom: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.confirmOrder p {
+    font-size: 28px;
+    color: #4E3822;
+    font-family: Montserrat-Medium;
+}
+
+.confirmOrder p span {
+    font-family: Montserrat-Semibold;
+}
+
+.confirmOrder button {
+    font-size: 24px;
+    color: #FFF8E4;
+    border: 2px solid #4E3822;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: Montserrat-Medium;
+    background-color: #4E3822;
+    cursor: pointer;
+}
+
+.confirmOrder button:hover {
+    background-color: #FFF8E4;
+    color: #4E3822;
+}
+/* ---------- Конец "Оформление заказа" ---------- */
+
+
+/* ---------- Профиль ---------- */
+.profilePage header {
+    margin-bottom: 80px;
+}
+
+.profile {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.profileAvatar {
+    width: 170px;
+    height: 170px;
+    background-color: #4E3822;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.avatar input {
+    display: none;
+}
+
+.avatar label {
+    width: 160px;
+    height: 160px;
+    background-color: #4E3822;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.avatar label:hover, .profileAvatar:hover .avatar label {
+    background-color: #60462C;
+}
+
+.avatar label p {
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+    color: #FFF8E4;
+    width: 120px;
+    text-align: center;
+}
+
+.profileName {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profileName h1, .profileInfo p {
+    color: #4E3822;
+}
+
+.profileName h1 {
+    font-family: Gramatika-Bold;
+    font-size: 32px;
+}
+
+.profileName svg {
+    cursor: pointer;
+}
+
+.profileName svg:hover {
+    transform: scale(0.9);
+}
+
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profileInfo p {
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+}
+
+.profileInfo p span {
+    font-family: Montserrat-Semibold;
+}
+
+.profileOptions, .manageOptions {
+    display: flex;
+    gap: 10px;
+}
+
+.profileOptions button, .profileOptions a {
+    font-size: 20px;
+    color: #FFF8E4;
+    background-color: #4E3822;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-family: Montserrat-Medium;
+    border: 2px solid #4E3822;
+    cursor: pointer;
+}
+
+.profileOptions button:hover, .profileOptions a:hover, .manageOptions button:first-child:hover {
+    background-color: transparent;
+    color: #4E3822;
+}
+
+.profileOptions button:last-child {
+    background-color: transparent;
+    border: 2px solid #FF0000;
+    color: #FF0000;
+}
+
+.profileOptions button:last-child:hover {
+    background-color: #FF0000;
+    color: #FFF8E4;
+}
+
+.profilePage footer {
+    margin-top: 160px;
+}
+
+.userOrdersTitle, .userReviewsTitle {
+    margin-top: 120px;
+    margin-bottom: 60px;
+}
+
+.orderStatus, .userReviewsBlock p:first-child  {
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #FFF8E4;
+    padding: 10px 20px;
+    background-color: #4E3822;
+    border-radius: 30px;
+    font-family: Montserrat-Medium;
+    width: fit-content;
+}
+
+.userOrders {
+    margin-bottom: 120px;
+}
+
+.ordersHistory {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.userOrders .cartItemOptions a, .userOrders .cartItem a {
+    color: #FFF8E4;
+    background-color: #4E3822;
+    border: 1px solid #4E3822;
+    font-family: Montserrat-Medium;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+
+.userOrders .cartItemOptions a:hover, .userOrders .cartItem a:hover {
+    background-color: transparent;
+    color: #4E3822;
+}
+
+.userOrders .cartItemPrice h2 {
+    font-weight: normal;
+    font-family: Montserrat-Semibold;
+    color: #FFF8E4;
+    border-radius: 30px;
+    padding: 5px 10px;
+    background-color: #4E3822;
+    font-size: 18px;
+}
+
+.userOrders .cartItemPrice h1 {
+    font-family: Montserrat-Medium;
+    cursor: default;
+    font-size: 20px;
+}
+
+.ordersHistory h3 {
+    font-weight: normal;
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    color: #4E3822;
+    text-decoration: underline;
+}
+
+.userReviews {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+}
+
+.userReview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userReviewBodyBlock {
+    display: flex;
+    gap: 20px;
+}
+
+.userReviewName {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.userReviewRate {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 8px;
+    background-color: #4E3822;
+    border-radius: 30px;
+}
+
+.userReviewRate h3 {
+    font-weight: normal;
+    font-family: Montserrat-Medium;
+    font-size: 18px;
+    color: #FFF8E4;
+}
+
+.userReviewBody h2 {
+    font-weight: normal;
+    font-family: Montserrat-Medium;
+    font-size: 24px;
+    color: #4E3822;
+}
+
+.userReviewBody p {
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    width: 700px;
+}
+
+.adminPage .avatar {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.adminPage .avatar img {
+    width: 160px;
+    height: 160px;
+    z-index: 1;
+}
+
+.adminPage .avatarEdit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.adminPage .avatarEdit p {
+    color: white;
+    font-family: Montserrat-Medium;
+    font-size: 18px;
+    text-align: center;
+}
+
+.adminPage .avatar img:hover {
+    opacity: 0;
+}
+
+.adminPage .profileName h2 {
+    font-weight: normal;
+    font-family: Montserrat-Medium;
+    font-size: 20px;
+    color: #FFF8E4;
+    background-color: #4E3822;
+    padding: 5px 10px;
+    border-radius: 30px;
+}
+/* ---------- Конец профиля ---------- */
+
+
+/* ---------- Панель управления ---------- */
+.managePage .title {
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+.manageOptions {
+    margin-bottom: 80px;
+}
+
+.manageOptions button {
+    font-size: 20px;
+    color: #4E3822;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-family: Montserrat-Medium;
+    border: 2px solid #4E3822;
+    cursor: pointer;
+    background-color: #FFF8E4;
+}
+
+.manageOptions button:hover {
+    background-color: #4E3822;
+    color: #FFF8E4;
+}
+
+.manageOptions button:first-child {
+    font-size: 20px;
+    color: #FFF8E4;
+    background-color: #4E3822;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-family: Montserrat-Medium;
+    border: 2px solid #4E3822;
+    cursor: pointer;
+}
+
+.managePage .filters .search input {
+    width: 200px;
+}
+
+.managePage .catalog .buy a {
+    background-color: #FFF8E4;
+    border: 1px solid #FF0000;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.managePage .catalog .buy a:hover {
+    background-color: #FF0000;
+}
+
+.managePage .catalog .buy a:hover svg {
+    fill: #FFF8E4;
+}
+
+.managePage .catalog .buy svg {
+    padding: 0;
+    background-color: transparent;
+    width: 30px;
+}
+
+.managePage .catalogHeader {
+    display: block;
+}
+
+.managePage .catalog .filters a, .managePromotions .filters a, .manageCategories .filters button {
+    color: #FFF8E4;
+    background-color: #4E3822;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Montserrat-medium;
+    border: 2px solid #4E3822;
+    cursor: pointer;
+}
+
+.managePage .catalog .filters a:hover, .managePromotions .filters a:hover, .manageCategories .filters button:hover {
+    background-color: transparent;
+    color: #4E3822;
+}
+
+.managePage .buy a:first-child {
+    font-family: Montserrat-Medium;
+    font-size: 26px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-self: center;
+    background-color: #4E3822;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    color: #FFF8E4;
+    cursor: pointer;
+    text-align: center;
+}
+
+.managePage .buy a:first-child:hover {
+    background-color: #60462C;
+}
+
+/* ---------- Редактирование товара ---------- */
+.editItemPage header {
+    margin-bottom: 80px;
+}
+
+.editItemPage footer {
+    margin-top: 120px;
+}
+
+.editItemTitle {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.editItemTitle p {
+    color: #FFF8E4;
+    padding: 5px 10px;
+    background-color: #4E3822;
+    font-family: Montserrat-Medium;
+    font-size: 28px;
+    border-radius: 30px;
+}
+
+.editItem {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+}
+
+.itemField {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.itemField label {
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    color: #4E3822;
+}
+
+.itemField input, .itemField select, .itemField textarea {
+    width: 100%;
+    color: #4E3822;
+    border: 1px solid #4E3822;
+    padding: 10px 20px;
+    outline: none;
+    background-color: #FFF8E4;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Montserrat-Regular;
+}
+
+.itemField input::placeholder, .itemField select::placeholder, .itemField textarea::placeholder, .itemProperties input::placeholder {
+    color: #4E3822;
+    opacity: 70%;
+}
+
+.itemField textarea {
+    font-size: 18px;
+    line-height: 24px;
+    height: 80px;
+}
+
+.editItem h2 {
+    font-size: 24px;
+    font-family: Montserrat-Semibold;
+    color: #4E3822;
+}
+
+.itemProperties {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+}
+
+.propertyBlock {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.itemProperties .property {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.itemProperties .property label {
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+    color: #4E3822;
+}
+
+.itemProperties input {
+    width: 100%;
+    color: #4E3822;
+    border: 1px solid #4E3822;
+    padding: 8px 16px;
+    outline: none;
+    background-color: #FFF8E4;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: Montserrat-Regular;
+}
+
+.editItemImages {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.editItemImages input {
+    display: none;
+}
+
+.editItemImages label {
+    padding: 8px 16px;
+    color: #4E3822;
+    border: 2px solid #4E3822;
+    border-radius: 10px;
+    font-family: Montserrat-Medium;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.editItemImages label:hover {
+    text-decoration: underline;
+}
+
+.editItemImages a {
+    color: #FFF8E4;
+    background-color: #4E3822;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+    border: 2px solid #4E3822;
+}
+
+.editItemImages a:hover {
+    background-color: transparent;
+    color: #4E3822;
+}
+
+.editItemGallery {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.editItemImage {
+    background-color: #4E3822;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.editItemImage img {
+    width: 280px;
+    border-radius: 20px;
+}
+
+.editItemImage a {
+    color: #FFF8E4;
+    font-family: Montserrat-Medium;
+    font-size: 18px;
+}
+
+.editItemImage a:hover {
+    text-decoration: underline;
+}
+
+.editItemOptions {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.editItemOptions button {
+    width: 50%;
+    color: #FFF8E4;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 24px;
+    text-align: center;
+    background-color: #4E3822;
+    border-radius: 10px;
+    font-family: Montserrat-Semibold;
+    border: 2px solid #4E3822;
+    cursor: pointer;
+}
+
+.editItemOptions button:first-child {
+    background-color: #60462C;
+    border: 2px solid #60462C;
+}
+
+.editItemOptions button:hover {
+    background-color: transparent;
+    color: #4E3822;
+}
+
+.editItemOptions button:first-child:hover {
+    color: #60462C;
+}
+
+.createItemPage .title {
+    margin-bottom: 60px;
+}
+/* ---------- Конец "Редактирование товара" ---------- */
+
+
+.managePromotionsBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.managePromotion {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.promOptions {
+    display: flex;
+    gap: 10px;
+}
+
+.promOptions a {
+    color: #FFF8E4;
+    font-size: 24px;
+    background-color: #4E3822;
+    font-family: Montserrat-Medium;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 2px solid #4E3822;
+}
+
+.promOptions a:last-child {
+    background-color: transparent;
+    border: 2px solid #FF0000;
+    color: #FF0000;
+}
+
+.promOptions a:hover {
+    background-color: transparent;
+    color: #4E3822;
+}
+
+.promOptions a:last-child:hover {
+    background-color: #FF0000;
+    color: #FFF8E4;
+}
+
+.managePage footer {
+    margin-top: 120px;
+}
+
+.managePromotions .catalogHeader {
+    margin-bottom: 60px;
+}
+
+.createPromotionBlock {
+    display: flex;
+    gap: 20px;
+}
+
+.createPromotionBlock .itemField {
+    width: 50%;
+}
+
+.createPromotionBlock .promotionDate {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.createPromotionBlock .promotionDate p {
+    font-size: 20px;
+    color: #4E3822;
+    font-family: Montserrat-Regular;
+}
+
+.editItem {
+    margin-top: 60px;
+}
+
+.manageReviews .filters .search:first-child input, .manageOrders .filters .search:first-child input {
+    width: 300px;
+}
+
+.manageReviews .filters .search, .manageOrders .filters .search, .manageCategories .filters .search {
+    padding: 8px 16px;
+}
+
+.manageReviews .catalogHeader, .manageOrders .catalogHeader {
+    margin-bottom: 60px;
+}
+
+.manageReviews .userReviewsBlock:last-child {
+    margin-top: 160px;
+}
+
+.manageReviews .userReviewsBlock p:first-child {
+    margin-bottom: 60px;
+}
+
+.manageReviews .userReviewName {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.manageReviews .userReviewName .id, .manageOrders .ordersHistory h1 .id, .manageCategories .id {
+    color: #FFF8E4;
+    background-color: #4E3822;
+    padding: 3px 6px;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+
+.manageReviews .userReviewName h1:last-child .id, .manageOrders .customer .id {
+    margin-left: 10px;
+}
+
+.manageReviews .userReviewRating {
+    display: flex;
+    gap: 10px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+
+.manageReviews .userReviewOptions a:last-child, .manageReviews .userReviewsBlock:last-child .userReviewOptions a {
+    font-size: 24px;
+    color: #FF0000;
+    border: 2px solid #FF0000;
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: Montserrat-Medium;
+    font-size: 20px;
+    background-color: #FFF8E4;
+}
+
+.manageReviews .userReviewOptions a:last-child:hover, .manageReviews .userReviewsBlock:last-child .userReviewOptions a:hover {
+    background-color: #FF0000;
+    color: #FFF8E4;
+}
+
+.manageReviews .userReviewsBody {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.orderStatus {
+    margin-bottom: 60px;
+}
+
+.manageOrders .ordersHistory h1 {
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    color: #4E3822;
+    font-weight: normal;
+} 
+
+.manageOrders .separateLine {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.manageOrders .cartItemOptions {
+    align-items: center;
+}
+
+.manageOrders .cartItemOptions a {
+    border: 2px solid #4E3822;
+}
+
+.manageOrders .userOrders:nth-child(4n+2) .cartItemOptions a:last-child {
+    background-color: transparent;
+    color: #FF0000;
+    border: 2px solid #FF0000;
+}
+
+.manageOrders .userOrders:nth-child(4n+2) .cartItemOptions a:last-child:hover {
+    background-color: #FF0000;
+    color: #FFF8E4;
+}
+
+.manageOrders .cartItemOptions p {
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+    color: #4E3822;
+}
+
+.manageCategories .catalogHeader {
+    margin-bottom: 60px;
+}
+
+.manageCategories .catalogHeader .filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.manageCategories .catalogHeader form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.manageCategories .catalogHeader form input {
+    color: #4E3822;
+    background-color: transparent;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Montserrat-medium;
+    border: 2px solid #4E3822;
+    outline: none;
+}
+
+.manageCategories .catalogHeader form input::placeholder {
+    color: #4E3822;
+    opacity: 70%;
+}
+
+.manageCategories .categories {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.manageCategories .category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.manageCategories .category h1 {
+    width: 100px;
+    font-weight: normal;
+    font-family: Montserrat-Semibold;
+    font-size: 24px;
+    color: #4E3822;
+}
+
+.manageCategories .category .id {
+    font-family: Montserrat-Medium;
+}
+
+.manageCategories .category p {
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+    color: #4E3822;
+}
+
+.manageCategories .categoryOptions {
+    display: flex;
+    gap: 10px;
+}
+
+.manageCategories .categoryOptions a {
+    font-size: 20px;
+    padding: 8px 16px;
+    color: #FFF8E4;
+    background-color: #4E3822;
+    border-radius: 10px;
+    border: 2px solid #4E3822;
+    font-family: Montserrat-Medium;
+}
+
+.manageCategories .categoryOptions a:last-child {
+    border: 2px solid #FF0000;
+    color: #FF0000;
+    background-color: transparent;
+}
+
+.manageCategories .categoryOptions a:hover {
+    background-color: transparent;
+    color: #4E3822;
+}
+
+.manageCategories .categoryOptions a:last-child:hover {
+    background-color: #FF0000;
+    color: #FFF8E4;
+}
+/* ---------- Конец панели управления ---------- */
