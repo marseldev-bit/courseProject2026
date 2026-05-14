@@ -1,4 +1,4 @@
-<form class="orderForm cont">
+<form class="orderForm orderPickup cont">
     <div class="orderAddress">
         <div class="orderField">
             <label>Выберите магазин</label>

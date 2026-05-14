@@ -57,6 +57,7 @@ body {
     padding-top: 80px;
     padding-bottom: 120px;
     margin-bottom: 80px;
+    width: 100%;
 }
 
 /* Контейнер 1300px */
@@ -88,6 +89,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.headerBlock label {
+    display: none;
 }
 
 .mainPage .headerBlock {
@@ -157,15 +162,25 @@ nav a:hover {
     fill: #4E3822;
 }
 
+.burgerMenu {
+    display: none;
+}
+
 /* Баннер */
 .banner {
     position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
     margin-bottom: 120px;
 }
 
-.banner img {
-    width: 1200px;
+.banner img:first-child {
     border-radius: 20px;
+    width: 1200px;
+}
+
+.banner img:nth-child(2n) {
+    display: none;
 }
 
 .bannerText {
@@ -197,6 +212,10 @@ nav a:hover {
     width: 440px;
 }
 
+.bannerText p:nth-child(3n) {
+    display: none;
+}
+
 .bannerText a {
     font-size: 24px;
     font-family: Montserrat-Medium;
@@ -218,8 +237,9 @@ nav a:hover {
     margin-top: 40px;
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 100px;
+    flex-wrap: wrap;
 }
 
 .advant {
@@ -273,7 +293,7 @@ nav a:hover {
     align-items: center;
 }
 
-.catalogHeader select {
+.catalogHeader select, .catalogHeaderMobile select {
     background-color: transparent;
     font-size: 20px;
     padding: 5px 10px;
@@ -282,6 +302,7 @@ nav a:hover {
     border-radius: 30px;
     font-family: Montserrat-Medium;
     cursor: pointer;
+    outline: none;
 }
 
 .catalogBlock, .catalogCards {
@@ -417,6 +438,7 @@ nav a:hover {
     padding-bottom: 160px;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 100px;
     margin: 0 auto;
     width: fit-content;
@@ -438,8 +460,6 @@ nav a:hover {
     gap: 20px;
     margin-top: 40px;
 }
-
-/* .questionBlock {} */
 
 .question {
     display: flex;
@@ -648,12 +668,19 @@ footer nav a {
     transform: scale(0.95);
 }
 
+.mobileCopyright {
+    display: none;
+}
 /* ---------- Конец главной страницы ---------- */
 
 
 /* ---------- Каталог ---------- */
 .catalogPage header {
     margin-bottom: 60px;
+}
+
+.catalogPage .catalogHeaderMobile {
+    display: none;
 }
 
 .filters {
@@ -931,11 +958,18 @@ footer nav a {
 }
 
 /* Отзывы */
+.reviewsBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+    margin-bottom: 120px;
+}
+
 .reviews {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
-    margin-bottom: 120px;
     gap: 20px;
 }
 
@@ -992,6 +1026,17 @@ footer nav a {
     font-family: Montserrat-Medium;
     font-size: 18px;
     color: #FFF8E4;
+}
+
+.itemPage .allItems {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.itemPage .allItems:hover {
+    left: 0;
+    top: 5px;
 }
 
 /* Похожие товары  */
@@ -1124,6 +1169,10 @@ footer nav a {
     align-items: center;
 }
 
+.cartMobile {
+    display: none;
+}
+
 .cartItemBlock {
     display: flex;
     gap: 20px;
@@ -1136,10 +1185,18 @@ footer nav a {
     border-radius: 10px;
 }
 
+.cartItemBlock img {
+    object-fit: cover;
+}
+
 .cartItemInfo {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.cartItemInfoBlock h3 {
+    display: none;
 }
 
 .cartItemInfo h1, .userReviewName h1 {
@@ -1198,20 +1255,32 @@ footer nav a {
 .cartItemOptions, .userReviewOptions {
     display: flex;
     gap: 10px;
-    height: 40px;
+    align-items: center;
 }
 
-.cartItemOptions a:first-child, .userReviewOptions a:first-child {
+.cartItemOptions a:first-child {
+    color: #FFF8E4;
+    background-color: #4E3822;
+    border: 2px solid #4E3822;
+    font-family: Montserrat-Medium;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.userReviewOptions a:first-child {
     color: #FFF8E4;
     background-color: #4E3822;
     border: 2px solid #4E3822;
     font-family: Montserrat-Medium;
     font-size: 20px;
     border-radius: 10px;
-    padding-left: 16px;
-    padding-right: 16px;
-    display: flex;
-    align-items: center;
+    padding: 8px 16px;
+}
+
+.userReviews .userReviewOptions a:last-child {
+    padding: 0;
+    height: 40px;
 }
 
 .cartItemOptions a:first-child:hover, .userReviewOptions a:first-child:hover  {
@@ -1220,8 +1289,8 @@ footer nav a {
 }
 
 .cartItemOptions svg, .userReviewOptions svg {
-    height: 100%;
-    width: 40px;
+    width: 42px;
+    height: 42px;
     padding: 8px;
     border: 1px solid #FF0000;
     border-radius: 10px;
@@ -1232,13 +1301,13 @@ footer nav a {
     fill: #FFF8E4;
 }
 
- .separateLine {
+.separateLine {
     height: 1px;
     width: 100%;
     background-color: #4E3822;
 }
 
-.cartPage header {
+.cartPage header, .orderPage header {
     margin-bottom: 120px;
 }
 
@@ -1288,7 +1357,7 @@ footer nav a {
     text-align: left;
 }
 
-.orderPage .cartItem h2 {
+.orderPage .cartItem h2, .orderPage .cartItemInfoBlock h3 {
     font-weight: normal;
     font-size: 24px;
     font-family: Montserrat-Medium;
@@ -1303,7 +1372,7 @@ footer nav a {
     margin-bottom: 40px;
 }
 
-.orderOptions form {
+.orderOptions {
     display: flex;
 }
 
@@ -1330,6 +1399,10 @@ footer nav a {
 
 .orderOptions button:last-child {
     border-radius: 0 10px 10px 0;
+}
+
+.orderPickup {
+    display: none;
 }
 
 .orderForm {
@@ -1435,6 +1508,10 @@ footer nav a {
     margin-bottom: 80px;
 }
 
+.userOrdersBlock, .profilePage .userReviews, .userReviewsTitle {
+    display: none;
+}
+
 .profile {
     margin-top: 40px;
     display: flex;
@@ -1483,9 +1560,15 @@ footer nav a {
 
 .profileName {
     display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.profileNameBlock {
+    display: flex;
     gap: 20px;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .profileName h1, .profileInfo p {
@@ -1597,6 +1680,10 @@ footer nav a {
     color: #4E3822;
 }
 
+.userOrders .orderMobile {
+    display: none;
+}
+
 .userOrders .cartItemPrice h2 {
     font-weight: normal;
     font-family: Montserrat-Semibold;
@@ -1627,15 +1714,22 @@ footer nav a {
     gap: 120px;
 }
 
+
 .userReview {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.reviewMobile {
+    display: none;
+}
+
 .userReviewBodyBlock {
     display: flex;
     gap: 20px;
+    margin-bottom: 20px;
+
 }
 
 .userReviewName {
@@ -1646,6 +1740,7 @@ footer nav a {
 
 .userReviewRate {
     width: fit-content;
+    height: fit-content;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -1666,6 +1761,7 @@ footer nav a {
     font-family: Montserrat-Medium;
     font-size: 24px;
     color: #4E3822;
+    margin-bottom: 10px;
 }
 
 .userReviewBody p {
@@ -1731,6 +1827,10 @@ footer nav a {
     margin-bottom: 80px;
 }
 
+.managePromotions, .manageReviews, .manageOrders, .manageCategories {
+    display: none;
+}
+
 .manageOptions button {
     font-size: 20px;
     color: #4E3822;
@@ -1740,11 +1840,6 @@ footer nav a {
     border: 2px solid #4E3822;
     cursor: pointer;
     background-color: #FFF8E4;
-}
-
-.manageOptions button:hover {
-    background-color: #4E3822;
-    color: #FFF8E4;
 }
 
 .manageOptions button:first-child {
@@ -1838,13 +1933,17 @@ footer nav a {
     margin-bottom: 40px;
 }
 
-.editItemTitle p {
+.editItemTitle p, .mobileId {
     color: #FFF8E4;
     padding: 5px 10px;
     background-color: #4E3822;
     font-family: Montserrat-Medium;
     font-size: 28px;
     border-radius: 30px;
+}
+
+.mobileId {
+    display: none;
 }
 
 .editItem {
@@ -1887,7 +1986,9 @@ footer nav a {
 .itemField textarea {
     font-size: 18px;
     line-height: 24px;
-    height: 80px;
+    overflow-y: hidden;
+    resize: none;
+    height: 120px;
 }
 
 .editItem h2 {
@@ -2148,7 +2249,7 @@ footer nav a {
     justify-content: space-between;
 }
 
-.manageReviews .userReviewName .id, .manageOrders .ordersHistory h1 .id, .manageCategories .id {
+.manageReviews .userReviewName .id, .manageOrders .ordersHistory h1 .id, .manageCategories .id, .reviewMobileAuthor h1 .id, .reviewMobileHeader h1 .id, .manageOrders .orderMobileInfo .id {
     color: #FFF8E4;
     background-color: #4E3822;
     padding: 3px 6px;
@@ -2328,3 +2429,1174 @@ footer nav a {
     color: #FFF8E4;
 }
 /* ---------- Конец панели управления ---------- */
+
+
+/* ---------- Адаптив под телефон ---------- */
+@media screen and (max-width: 500px) {
+    .mainPage {
+        height: auto;
+    }
+
+    .beige {
+        padding-top: 40px;
+        padding-bottom: 80px;
+        margin-bottom: 40px;
+    }
+
+    .title, .titleWhite {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    /* Шапка */
+    .cont {
+        max-width: 80%;
+    }
+
+    .logo {
+        gap: 10px;
+    }
+
+    .logo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .logo h1 {
+        margin-top: 2px;
+        font-size: 24px;
+    }
+
+    .headerBlock nav, .headerBlock .options {
+        display: none;
+    } 
+
+    .headerBlock label {
+        display: block;
+    }
+
+    .headerBlock label::before {
+        content: url('../assets/images/burger.png');
+    }
+
+    /* Стилизация Бургер меню */
+    .burgerMenu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        z-index: 2;
+        padding: 30px 40px 40px 40px;
+        background-color: #4E3822;
+    }
+
+    .burgerMenu nav {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .burgerMenu nav a {
+        font-size: 20px;
+        color: #FFF8E4;
+        font-family: Montserrat-Medium;
+    }
+
+    .burgerMenu nav a:hover {
+        transform: scale(1.1);
+    }
+
+    .burgerReg {
+        display: flex;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .burgerReg a {
+        text-align: center;
+        width: 50%;
+        font-family: Montserrat-Medium;
+        font-size: 18px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        color: #FFF8E4;
+        border: 1px solid #FFF8E4;
+        background-color: #60462C;
+        border-radius: 10px;
+    }
+
+    .burgerReg a:hover {
+        background-color: #FFF8E4;
+        color: #4E3822;
+    }
+
+    /* Баннер */
+    .banner {
+        width: 100%;
+        margin-bottom: 80px;
+    }
+
+    .banner img:first-child {
+        display: none;
+    }
+
+    .banner img:nth-child(2n) {
+        display: block;
+        width: 100%;
+    }
+
+    .bannerText {
+        left: 40px;
+        top: 80px;
+        right: 40px;
+        bottom: 80px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bannerText h1 {
+        text-align: center;
+        font-size: 28px;
+        width: auto;
+        line-height: 30px;
+    }
+
+    .bannerText p:nth-child(3n+2) {
+        display: none;
+    }
+
+    .bannerText p:nth-child(3n) {
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        width: auto;
+        margin-bottom: 20px;
+    }
+
+    .bannerText a {
+        font-size: 16px;
+        padding: 5px 10px;
+        font-family: Montserrat-Semibold;
+    }
+
+    /* О компании */
+    .advantages {
+        margin-top: 20px;
+        margin-bottom: 60px;
+    }
+
+    .advant h1 {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .advant p {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    /* Каталог */
+    .catalog {
+        margin-bottom: 80px;
+    }
+
+    .catalogHeader select {
+        font-size: 16px;
+    }
+
+    .mainPage .catalog .card:nth-child(2n) {
+        display: none;
+    }
+
+    .catalog .card:nth-child(n+2) {
+        margin-top: 20px;
+    }
+
+    .catalogBlock {
+        margin-top: 20px;
+    }
+
+    .item {
+        padding: 5px 5px 10px 5px;
+    }
+
+    .item h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .item p, .price p {
+        font-size: 14px;
+    }
+
+    .price h2 {
+        font-size: 24px;
+    }
+
+    .buy button {
+        font-size: 24px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .buy svg {
+        padding: 5px;
+    }
+
+    /* Партнеры */
+    .partners {
+        padding-top: 30px;
+        width: 100%;
+        flex-direction: column;
+        gap: 40px;
+        padding-bottom: 0;
+    }
+
+    .partners img {
+        width: 180px;
+        height: fit-content;
+    }
+
+    .partners img:first-child {
+        width: 100px;
+        height: 70px;
+    }
+
+    /* Часто задаваемые вопросы */
+    .faqTitle, .faq {
+        display: none;
+    }
+
+    /* Акции */
+    .promotionsBlock {
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+
+    .promotions {
+        max-width: 80%;
+        margin: 0 auto;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .prom {
+        width: 100%;
+        height: auto;
+        position: relative;
+        background-color: transparent;
+    }
+
+    .prom img {
+        width: 100%;
+        height: fit-content;
+        border-radius: 20px;
+        filter: brightness(0.4);
+    }
+
+    .promText {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 20px 20px 10px 20px;
+    }
+
+    .promText h1 {
+        font-size: 20px;
+        text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .promText p {
+        font-size: 14px;
+        line-height: 20px;
+        text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .promText h2 {
+        font-size: 16px;
+        text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .promotionsBlock .slider {
+        display: none;
+    }
+
+    /* Подвал */
+    .mobileCopyright {
+        display: block;
+    }
+
+    footer {
+        margin-top: 80px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .mainPage footer {
+        margin-top: 80px;
+    }
+
+    .mainPage footer, .footerBlock {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    
+
+    footer .copyright p, .footerBlock .copyright p {
+        display: none;
+    }
+
+    footer .contact h1, .footerBlock .contact h1 {
+        display: none;
+    }
+
+    footer nav a, .footerBlock nav a {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    footer .contact, .footerBlock .contact {
+        gap: 20px;
+    }
+
+    footer .contact a, .footerBlock .contact a, footer .contact p, .footerBlock .contact p, .mobileCopyright {
+        text-align: center;
+        font-family: Montserrat-Medium;
+        font-size: 20px;
+        color: white;
+    }
+
+    .mobileCopyright {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .mobileCopyright .separateLine {
+        width: 100%;
+        height: 1px;
+        background-color: white;
+        border-radius: 30px;
+    }
+
+    /* Страница каталога */
+    .catalogPage header {
+        margin-bottom: 40px;
+    }
+
+    .catalogPage .catalogHeader {
+        display: none;
+    }
+
+    .catalogPage .catalogHeaderMobile {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .catalogPage .catalogHeaderMobile .filters {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .catalogHeaderMobile select {
+        padding: 4px 8px;
+    }
+
+    .catalogPage .catalogBlock {
+        margin-top: 40px;
+    }
+
+    .catalogPage .categoryTitle {
+        font-size: 24px;
+        padding: 5px 10px;
+    }
+    
+    .catalogPage .catalogBlock {
+        gap: 10px;
+    }
+
+    .catalogPage .allItems {
+        margin-top: 10px;
+    }
+
+    /* Карточка товара */
+    .itemPage header {
+        margin-bottom: 40px;
+    }
+
+    .itemTitle {
+        text-align: center;
+        font-size: 28px;
+        padding-bottom: 10px;
+    }
+
+    .itemBlock {
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 80px;
+    }
+
+    .itemImage img {
+        width: 100%;
+    }
+
+    .itemImage .slider {
+        gap: 5px;
+    }
+
+    .itemImage .slider svg {
+        width: 40px;
+        height: auto;
+        padding: 5px;
+    } 
+
+    .itemImages {
+        gap: 10px;
+    }
+
+    .itemImages img {
+        width: 60px;
+    }
+
+    .itemBuy a {
+        font-size: 20px;
+    }
+
+    .itemBuy svg {
+        width: 60px;
+        padding: 10px;
+    }
+
+    .itemInfo {
+        padding: 0;
+    }
+
+    .itemInfo p {
+        font-size: 18px;
+    }
+
+    .itemInfo .characteristics {
+        gap: 15px;
+        width: 100%;
+    }
+
+    .char {
+        gap: 15px;
+    }
+
+    .charLine {
+        display: none;
+    }
+
+    .itemInfo .char h2 {
+        font-size: 16px;
+        text-wrap: nowrap;
+    }
+
+    .itemInfo .char h2:first-child {
+        font-family: Montserrat-Semibold;
+    }
+
+    .myReview {
+        margin-top: 20px;
+        margin-bottom: 120px;
+    }
+
+    .myReview h1 {
+        display: none;
+    }
+
+    .myReview .rating {
+        width: 100%;
+    }
+
+    .myReview .stars {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .myReview .stars svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .myReview textarea {
+        width: 100%;
+    }
+
+    .itemPage .reviewsBlock {
+        margin-top: 20px;
+        margin-bottom: 80px;
+    }
+
+    .itemPage .reviews {
+        flex-wrap: wrap;
+    }
+
+    .itemPage .catalogCards, .similarItemsTitle {
+        display: none;
+    }
+
+    .itemPage .review {
+        padding: 20px;
+    }
+
+    .itemPage .review .name h1 {
+        font-size: 24px;
+    }
+
+    /* Форма регистрации */
+    .regPage .title {
+        margin-top: 80px;
+    }
+
+    .reg {
+        margin-top: 30px;
+        background-color: transparent;
+        width: 80%;
+        padding: 0;
+        gap: 20px;
+    }
+
+    .reg .field {
+        width: 100%;
+        gap: 5px;
+    }
+
+    .reg .field label {
+        color: #4E3822;
+    }
+
+    .reg .field input, .reg .field select {
+        background-color: transparent;
+        color: #4E3822;
+        border: 1px solid #4E3822;
+    }
+
+    .reg .field input::placeholder {
+        color: #4E3822;
+        opacity: 70%;
+    }
+
+    .reg .regButtons button {
+        background-color: #4E3822;
+        color: #FFF8E4;
+        border: none;
+        font-family: Montserrat-Medium;
+    }
+
+    .regPage main p {
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    /* Корзина */
+    .cartPage header {
+        margin-bottom: 60px;
+    }
+
+    .cartPage .cart {
+        margin-top: 40px;
+        gap: 60px;
+        margin-bottom: 40px;
+    }
+
+    .cartPage .cartItem {
+        display: none;
+    }
+
+    .cartPage .cartMobile {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .cartPage .totalCost {
+        margin-bottom: 100px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .cartPage .totalCost h1 {
+        font-size: 20px;
+        color: #4E3822;
+    }
+
+    .cartPage .totalCost button {
+        width: 100%;
+        font-size: 22px;
+        padding: 10px;
+    }
+
+    /* Оформление заказа */
+    .orderPage header {
+        margin-bottom: 60px;
+    }
+
+    .orderPage .title {
+        text-align: center;
+    }
+
+    .orderPage .cart, .userOrdersBlock .cart {
+        margin-top: 40px;
+        gap: 20px;
+    }
+
+    .orderPage .cartItem h2, .userOrdersBlock .cartItem h2 {
+        display: none;
+    }
+
+    .orderPage .cartItemInfoBlock, .userOrdersBlock .cartItemInfoBlock {
+        display: flex; gap: 20px;
+        align-items: center;
+    }
+
+    .orderPage .cartItemInfoBlock h3 {
+        display: block;
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .orderPage .cartItemBlock, .userOrdersBlock .cartItemBlock {
+        gap: 10px;
+    }
+
+    .orderPage .cartItemBlock img, .userOrdersBlock .cartItemBlock img {
+        width: 36px;
+        height: 36px;
+        border-radius: 5px;
+    }
+
+    .orderPage .cartItemInfo, .userOrdersBlock .cartItemInfo {
+        gap: 5px;
+    }
+
+    .orderPage .cartItemInfo h1, .userOrdersBlock .cartItemInfo h1 {
+        font-size: 16px;
+        text-wrap: nowrap;
+        overflow: hidden;
+        width: 270px;
+        text-overflow: ellipsis;
+    }
+
+    .orderPage .cartItemInfoBlock p, .userOrdersBlock .cartItemPrice p {
+        font-size: 16px;
+    }
+
+    .orderOptions {
+        margin-top: 20px;
+    }
+
+    .orderOptions {
+        justify-content: center;
+    }
+
+    .orderOptions button {
+        align-items: center;
+        width: 100%;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .orderAddress, .orderInfo, .orderForm {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .orderField {
+        width: 100%;
+    }
+
+    .orderField label {
+        font-size: 18px;
+    }
+
+    .orderField input, .orderField select {
+        font-size: 16px;
+    }
+
+    .orderField p {
+        font-size: 20px;
+    }
+
+    .confirmOrder {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .confirmOrder p {
+        font-size: 24px;
+    }
+
+    .confirmOrder button {
+        width: 100%;
+    }
+
+    /* Профиль */
+    .profilePage header {
+        margin-bottom: 60px;
+    }
+
+    .profile {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .profileBlock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profileAvatar {
+        width: 120px;
+        height: 120px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .avatar label {
+        width: 110px;
+        height: 110px;
+        background-color: #60462C;
+        gap: 5px;
+    }
+
+    .adminPage .avatar img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .avatar label p {
+        font-size: 16px;
+    }
+
+    .avatar label svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .profileName {
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+
+    .profileName h1 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .profileName svg {
+        height: 20px;
+        width: 20px;
+    }
+
+    .profileInfo p {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .profileOptions {
+        flex-wrap: wrap;
+    }
+
+    .profileOptions button, .profileOptions a {
+        font-size: 18px;
+        padding: 6px 12px;
+        gap: 5px;
+    }  
+
+    .userOrdersTitle, .userReviewsTitle {
+        margin-top: 60px;
+        margin-bottom: 40px;
+    }
+
+    .orderStatus, .userReviewsBlock p:first-child {
+        font-size: 24px;
+        padding: 6px 12px;
+        align-self: center;
+        margin-bottom: 40px;
+    }
+
+    .userOrders, .userReviewsBlock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 120px;
+    }
+
+    .userOrders .cartItem, .ordersHistory h3, .userReview {
+        display: none;
+    }
+
+    .userOrders .ordersHistory, .userReviewsBody {
+        gap: 60px;
+    }
+
+    .userOrders .orderMobile, .reviewMobile {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .orderMobileHeader, .reviewMobileHeader, .cartMobileHeader {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .orderMobileHeader img, .reviewMobileHeader img, .cartMobile .cartMobileHeader img {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+    }
+
+    .orderMobileHeader h1, .reviewMobileHeader h1, .cartMobileHeader h1 {
+        font-weight: normal;
+        font-family: Montserrat-Medium;
+        color: #4E3822;
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .orderMobileInfo, .cartMobilePrice {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .cartMobilePrice {
+        gap: 10px;
+    }
+
+    .cartMobileQuanity {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .cartItemQuanity {
+        border: 1px solid #4E3822;
+    }
+
+    .cartMobile .cartItemOptions a:first-child {
+        font-size: 26px;
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+
+    .cartMobile .cartItemOptions svg {
+        width: 49px;
+        height: 49px;
+        padding: 10px;
+        
+    }
+
+    .orderMobileInfo p, .cartMobilePrice p {
+        font-size: 18px;
+        color: #4E3822;
+        font-family: Montserrat-Regular;
+    }
+
+    .cartMobilePrice p {
+        font-size: 20px;
+    }
+
+    .orderMobileInfo p span,.cartMobilePrice p span {
+        font-family: Montserrat-Medium;
+    }
+
+    .orderMobileOptions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .orderMobileOptions a {
+        color: #FFF8E4;
+        background-color: #4E3822;
+        border-radius: 10px;
+        font-family: Montserrat-Medium;
+        padding: 8px 16px;
+        font-size: 20px;
+    }
+
+    .userReviews {
+        gap: 120px;
+    }
+
+    .userReviewsBlock {
+        margin-bottom: 0;
+    }
+
+    .reviewMobile h2 {
+        font-weight: normal;
+        font-size: 20px;
+        color: #4E3822;
+        font-family: Montserrat-Medium;
+    }
+
+    .reviewMobileRate {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .reviewMobileDescription p {
+        margin-top: 5px;
+        font-size: 16px;
+        color: black;
+        font-family: Montserrat-Regular;
+        line-height: 24px;
+    }
+
+    .userReviewBody p {
+        height: auto;
+    }
+
+    .adminPage .profileNameBlock {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .adminPage .profileName {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    /* Панель управления */
+    .manageOptions {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 60px;
+    }
+
+    .manageItems .filters, .managePromotions .filters, .manageReviews .filters, .manageOrders .filters {
+        flex-wrap: wrap;
+    }
+
+    .manageItems .search, .managePromotions .search, .manageReviews .search, .manageOrders .search {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .manageItems .filters a:last-child, .managePromotions .filters a:last-child {
+        padding: 6px 12px;
+        font-size: 18px;
+    }
+
+    .manageItems .search input, .managePromotions .search input, .manageReviews .search input, .manageOrders .search input {
+        font-size: 18px;
+    }
+
+    .mobileId {
+        display: block;
+        width: fit-content;
+        font-size: 24px;
+        padding: 8px 16px;
+    }
+    
+    .editItemTitle {
+        margin-bottom: 40px;
+    }
+
+    .editItemTitle p {
+        display: none;
+    }
+
+    .editItem {
+        margin-top: 20px;
+        gap: 30px;
+    }
+
+    .itemField {
+        gap: 10px;
+    }
+
+    .itemField label {
+        font-size: 20px;
+    }
+
+    .itemField input, .itemField select {
+        font-size: 16px;
+        padding: 8px 16px;
+        height: max-content;
+    }
+
+    .itemField textarea {
+        font-size: 14px;
+        line-height: 20px;
+        padding: 8px 16px;
+        height: 160px;
+    }
+
+    .editItem h2 {
+        margin-top: 20px;
+    }
+
+    .itemProperties, .propertyBlock {
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .itemProperties .property {
+        width: 100%;
+    }
+
+    .editItemImages {
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .editItemImages label, .editItemImages a {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+
+    .editItemGallery {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .editItemImage {
+        width: 48%;
+        border-radius: 10px;
+    }
+
+    .editItemImage img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .editItemImage a {
+        font-size: 14px;
+    }
+
+    .editItemOptions {
+        flex-direction: column;
+    }
+
+    .editItemOptions button {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .managePromotionsBlock {
+        gap: 40px;
+    }
+
+    .managePromotion {
+        gap: 10px;
+    }
+
+    .promOptions a {
+        width: 50%;
+        font-size: 16px;
+        text-align: center;
+        padding: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .createPromotionBlock {
+        flex-direction: column;
+    }
+
+    .createPromotionBlock .itemField {
+        width: 100%;
+    }
+
+    .reviewMobileAuthor {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .reviewMobileAuthor h1 {
+        font-weight: normal;
+        font-size: 20px;
+        color: #4E3822;
+        font-family: Montserrat-Medium;
+    }
+
+    .reviewMobileHeader h1 {
+        font-size: 18px;
+    }
+
+    .reviewMobileHeader .id, .reviewMobileAuthor .id {
+        margin-left: 5px;
+    }
+
+    .reviewMobile .userReviewOptions a {
+        padding: 8px 16px;
+        text-align: center;
+    }
+
+    .customer {
+        display: none;
+    }
+
+    .manageOrders .orderMobileHeader h1 {
+        font-size: 18px;
+    }
+
+    .manageOrders .orderMobileInfo p:first-child {
+        font-family: Montserrat-Medium;
+    }
+
+    .manageOrders .orderMobileInfo .id {
+        margin-left: 10px;
+        margin-right: 5px;
+    }
+
+    .manageOrders .orderMobileOptions .cancel {
+        background-color: transparent;
+        color: #FF0000;
+        border: 2px solid #FF0000;
+    }
+
+    .manageCategories .catalogHeader .filters, .filters form {
+        flex-wrap: wrap;
+    }
+
+    .manageCategories .filters {
+        gap: 40px;
+    }
+
+    .categories .category {
+        align-items: left;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .categories .category h1 {
+        width: fit-content;
+    }
+}
