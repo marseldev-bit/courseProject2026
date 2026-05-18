@@ -2,7 +2,7 @@
     <div class="catalogHeader">
         <div class="filters">
             <div class="search">
-                <input type="text" placeholder="ID или название товара...">
+                <input type="text" placeholder="ID товара...">
                 <img src="../assets/images/search.png">
             </div>
 
@@ -34,6 +34,8 @@
                 <a href="">Заказ завершен</a>
                 <a href="#">Отменить</a>
            </div>
+
+           <h1 class="customerTablet">Заказчик:<span class="id">12</span>Марсель</h1>
        </div>
         <h1 class="customer">Заказчик:<span class="id">12</span>Марсель</h1>
         
@@ -75,6 +77,8 @@
                 <a href="">Заказ завершен</a>
                 <a href="#">Отменить</a>
            </div>
+
+           <h1 class="customerTablet">Заказчик:<span class="id">69</span>Лия</h1>
        </div>
         <h1 class="customer">Заказчик:<span class="id">69</span>Лия</h1>
 
@@ -118,6 +122,8 @@
                 <p>Доставлен: 20.01.2026</p>
                 <a href="#">Подробности</a>
            </div>
+
+           <h1 class="customerTablet">Заказчик:<span class="id">3</span>IgorChess</h1>
        </div>
         <h1 class="customer">Заказчик:<span class="id">3</span>IgorChess</h1>
 

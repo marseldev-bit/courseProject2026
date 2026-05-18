@@ -162,6 +162,60 @@ nav a:hover {
     fill: #4E3822;
 }
 
+/* Стилизация Бургер меню */
+    .burgerMenu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        z-index: 2;
+        padding: 30px 40px 40px 40px;
+        background-color: #4E3822;
+    }
+
+    .burgerMenu nav {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .burgerMenu nav a {
+        font-size: 20px;
+        color: #FFF8E4;
+        font-family: Montserrat-Medium;
+    }
+
+    .burgerMenu nav a:hover {
+        transform: scale(1.1);
+    }
+
+    .burgerReg {
+        display: flex;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .burgerReg a {
+        text-align: center;
+        width: 50%;
+        font-family: Montserrat-Medium;
+        font-size: 18px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        color: #FFF8E4;
+        border: 1px solid #FFF8E4;
+        background-color: #60462C;
+        border-radius: 10px;
+    }
+
+    .burgerReg a:hover {
+        background-color: #FFF8E4;
+        color: #4E3822;
+    }
+
 .burgerMenu {
     display: none;
 }
@@ -177,6 +231,8 @@ nav a:hover {
 .banner img:first-child {
     border-radius: 20px;
     width: 1200px;
+    height: 660px;
+    object-fit: cover;
 }
 
 .banner img:nth-child(2n) {
@@ -1176,6 +1232,7 @@ footer nav a {
 .cartItemBlock {
     display: flex;
     gap: 20px;
+    width: 600px;
 }
 
 .cartItemBlock img, .userReviewBodyBlock img {
@@ -1255,7 +1312,6 @@ footer nav a {
 .cartItemOptions, .userReviewOptions {
     display: flex;
     gap: 10px;
-    align-items: center;
 }
 
 .cartItemOptions a:first-child {
@@ -1263,7 +1319,8 @@ footer nav a {
     background-color: #4E3822;
     border: 2px solid #4E3822;
     font-family: Montserrat-Medium;
-    height: 40px;
+    padding: 8px 16px;
+    height: 44px;
     font-size: 20px;
     border-radius: 10px;
 }
@@ -1289,10 +1346,10 @@ footer nav a {
 }
 
 .cartItemOptions svg, .userReviewOptions svg {
-    width: 42px;
-    height: 42px;
-    padding: 8px;
+    height: 44px;
+    width: 44px;
     border: 1px solid #FF0000;
+    padding: 5px;
     border-radius: 10px;
 }
 
@@ -2257,7 +2314,7 @@ footer nav a {
     margin-right: 10px;
 }
 
-.manageReviews .userReviewName h1:last-child .id, .manageOrders .customer .id {
+.manageReviews .userReviewName h1:last-child .id, .manageOrders .customer .id, .manageOrders .customerTablet .id {
     margin-left: 10px;
 }
 
@@ -2334,6 +2391,10 @@ footer nav a {
     font-size: 20px;
     font-family: Montserrat-Medium;
     color: #4E3822;
+}
+
+.customerTablet {
+    display: none;
 }
 
 .manageCategories .catalogHeader {
@@ -2477,60 +2538,6 @@ footer nav a {
 
     .headerBlock label::before {
         content: url('../assets/images/burger.png');
-    }
-
-    /* Стилизация Бургер меню */
-    .burgerMenu {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        gap: 20px;
-        z-index: 2;
-        padding: 30px 40px 40px 40px;
-        background-color: #4E3822;
-    }
-
-    .burgerMenu nav {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .burgerMenu nav a {
-        font-size: 20px;
-        color: #FFF8E4;
-        font-family: Montserrat-Medium;
-    }
-
-    .burgerMenu nav a:hover {
-        transform: scale(1.1);
-    }
-
-    .burgerReg {
-        display: flex;
-        width: 100%;
-        gap: 5px;
-    }
-
-    .burgerReg a {
-        text-align: center;
-        width: 50%;
-        font-family: Montserrat-Medium;
-        font-size: 18px;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        color: #FFF8E4;
-        border: 1px solid #FFF8E4;
-        background-color: #60462C;
-        border-radius: 10px;
-    }
-
-    .burgerReg a:hover {
-        background-color: #FFF8E4;
-        color: #4E3822;
     }
 
     /* Баннер */
@@ -3303,17 +3310,27 @@ footer nav a {
         border: 1px solid #4E3822;
     }
 
-    .cartMobile .cartItemOptions a:first-child {
-        font-size: 26px;
-        padding-top: 22px;
-        padding-bottom: 22px;
+    .cartMobile .cartMobileOptions {
+        display: flex;
+        gap: 5px;
     }
 
-    .cartMobile .cartItemOptions svg {
-        width: 49px;
-        height: 49px;
-        padding: 10px;
-        
+    .cartMobile .cartMobileOptions a:first-child {
+        color: #FFF8E4;
+        font-family: Montserrat-Medium;
+        padding: 8px 16px;
+        height: 44px;
+        background-color: #4E3822;
+        border-radius: 10px;
+        font-size: 24px;
+    }
+
+    .cartMobile .cartMobileOptions svg {
+        border: 1px solid #FF0000;
+        border-radius: 10px;
+        padding: 8px;
+        height: 44px;
+        width: 44px;
     }
 
     .orderMobileInfo p, .cartMobilePrice p {
@@ -3598,5 +3615,520 @@ footer nav a {
 
     .categories .category h1 {
         width: fit-content;
+    }
+}
+
+
+/* ---------- Адаптив под телефон конец ---------- */
+
+
+/* ---------- Адаптив под планшет ---------- */
+@media screen and (min-width: 501px) and (max-width: 1100px) {
+
+    .mainPage {
+        height: auto;
+    }
+
+    .title, .titleWhite {
+        font-size: 36px;
+    }
+
+    .cont {
+        max-width: 80%;
+    }
+
+    /* Шапка */
+    .headerBlock nav, .headerBlock .options {
+        display: none;
+    }
+
+    .headerBlock label {
+        display: block;
+    }
+
+    .headerBlock label::before {
+        content: url('../assets/images/burgerTablet.png');
+    }
+
+
+    .logo img {
+        height: 44px;
+        width: 44px;
+    }
+
+    .logo h1 {
+        margin-top: 5px;
+        font-size: 36px;
+    }
+
+    .burgerMenu {
+        padding-top: 10px;
+        margin-top: 30px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .burgerMenu nav a {
+        font-size: 24px;
+    }
+
+    .burgerMenu .burgerReg {
+        width: 80%;
+    }
+
+    .burgerReg a {
+        font-size: 24px;
+    }
+
+    /* Баннер */
+    .banner {
+        margin-bottom: 80px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .banner img:first-child {
+        max-width: 100%;
+        height: 440px;
+        object-fit: cover;
+        border-radius: 0;
+    }
+
+    .bannerText {
+        width: 80%;
+        left: auto;
+    }
+
+    .bannerText h1 {
+        width: 350px;
+        line-height: 40px;
+        font-size: 36px;
+    }
+
+    .bannerText p {
+        font-size: 20px;
+    }
+
+    .bannerText a {
+        font-size: 24px;
+    }
+
+    /* О компании */
+    .advantages {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #advantage {
+        text-align: center;
+    }
+
+    .advant {
+        width: 80%;
+    }
+
+    .advant img {
+        height: 180px;
+        object-fit: cover;
+    }
+
+    /* Каталог */
+    .card {
+        width: 48%;
+    }
+
+    .item h1 {
+        font-size: 20px;
+    }
+
+    .item p {
+        font-size: 14px;
+    }
+
+    .catalogBlock .card:nth-child(n+3) {
+        margin-top: 20px;
+    }
+
+    /* Партнеры */
+    .partners {
+        width: 90%;
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .partners img {
+        width: 24%;
+        height: auto;
+    }
+
+    .partners img:first-child {
+        width: 12%;
+        height: auto;
+    }
+
+    /* Часто задаваемые вопросы */
+    .faq h1 {
+        font-size: 20px;
+    }
+
+    /* Акции */
+    .promotions {
+        width: 80%;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .prom {
+        width: 100%;
+    }
+
+    .prom img {
+        object-fit: cover;
+    }
+
+    .prom h1 {
+        font-size: 20px;
+    }
+
+    .prom p {
+        font-size: 16px;
+    }
+
+    .prom h2 {
+        font-size: 18px;
+    }
+
+    .mainPage .slider {
+        display: none;
+    }
+
+    /* Подвал */
+    .copyright p {
+        font-size: 20px;
+        width: 200px;
+    }
+
+    .mainPage footer {
+        padding-top: 0px;
+    }
+
+    /* Страница каталога */
+    .catalogPage .catalogCards .card:last-child {
+        display: none;
+    }
+
+    .catalogPage .catalogHeader .search input {
+        width: 180px;
+    }
+
+    /* Карточка товара */
+    .itemPage .itemTitle {
+        text-align: center;
+    }
+
+    .itemPage .itemBlock {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .itemPage .itemImage, .itemImage img {
+        width: 100%;
+    }
+
+    .itemPage .itemImages {
+        width: 100%;
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .itemPage .itemImages img {
+        width: 22%;
+    }
+
+    .itemPage .itemInfo {
+        padding: 0;
+    }
+
+    .itemPage .itemInfo .characteristics {
+        width: 100%;
+    }
+
+    .itemPage .char h2 {
+        font-size: 24px;
+    }
+
+    .itemPage .itemBuy a {
+        font-size: 30px;
+    }
+
+    .itemPage .itemBuy svg {
+        width: 70px;
+        height: 70px;
+    }
+
+    .itemPage .itemInfo p {
+        font-size: 22px;
+    }
+
+    .itemPage .myReview .rating svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .itemPage .myReview h1 {
+        font-size: 28px;
+    }
+
+    .itemPage .myReview button {
+        font-size: 28px;
+    }
+
+    .itemPage .reviews {
+        flex-wrap: wrap;
+    }
+
+    .itemPage .review p {
+        font-size: 18px;
+    }
+
+    .itemPage .catalogCards .card:last-child {
+        display: none;
+    }
+
+    /* Регистрация */
+
+    .regPage form {
+        width: 80%;
+    }
+
+    .regPage .field label {
+        font-size: 28px;
+    }
+
+    .regPage .field input, .regPage .field select {
+        font-size: 24px;
+        padding: 10px 20px;
+    }
+
+    .regPage .regButtons button {
+        font-size: 28px;
+    }
+
+    .regPage main p {
+        font-size: 30px;
+    }
+
+    /* Корзина */
+    .cart {
+        margin-bottom: 40px;
+    }
+
+    .cartItemBlock {
+        gap: 10px;
+        width: 420px;
+    }
+
+    .cartItemBlock img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .cartItemInfo h1 {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .cartItemInfo {
+        gap: 10px;
+    }
+
+    .cartItemPrice p {
+        font-size: 24px;
+    }
+
+    .totalCost {
+        background-color: transparent;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .totalCost h1 {
+        color: #4E3822;
+        font-size: 28px;
+    }
+
+    .totalCost button {
+        background-color: #4E3822;
+        font-size: 28px;
+        text-align: center;
+        padding: 15px 30px;
+    }
+
+    /* Оформление заказа */
+    .orderPage .cart {
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+
+    .orderPage .cartItemInfoBlock p {
+        font-size: 24px;
+    }
+
+    .orderAddress, .orderInfo {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .orderField {
+        width: 100%;
+    }
+
+    /* Профиль */
+    .profileName h1 {
+        font-size: 40px;
+    }
+
+    .profileName svg {
+        height: 26px;
+        width: 26px;
+    }
+
+    .profileInfo p {
+        font-size: 22px;
+    }
+
+    .profileOptions {
+        flex-wrap: wrap;
+    }
+
+    .profileOptions a, .profileOptions button {
+       font-size: 24px;
+    }
+
+    /* История заказов пользователя */
+    .userOrdersBlock .cartItem, .manageOrders .cartItem {
+        align-items: unset;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .userOrdersBlock .userOrders:nth-child(2n) .ordersHistory, .manageOrders .userOrders:nth-child(2n) .ordersHistory {
+        gap: 60px;
+    }
+
+    .userOrdersBlock .cartItemBlock, .manageOrders .cartItemBlock {
+        width: 100%;
+    }
+
+    .userOrdersBlock .cartItemInfo, .manageOrders, .cartItemInfo {
+        gap: 20px;
+    }
+
+    .userOrdersBlock .cartItemInfo h1, .manageOrders .cartItemInfo h1 {
+        font-size: 24px;
+    }
+
+    .manageOrders .cartItemOptions {
+        flex-wrap: wrap;
+    }
+
+    .userOrders .cartItemOptions a, .manageOrders .cartItemOptions a {
+        font-size: 24px;
+    }
+
+    /* Отзывы пользователя */
+    .userReview {
+        flex-direction: column;
+        align-items: unset;
+        gap: 40px;
+    }
+
+    .userReviewRate h3 {
+        font-size: 24px;
+    }
+
+    .userReviewRate {
+        gap: 5px;
+        padding: 5px 10px;
+    }
+
+    .userReviewRate svg {
+        height: 22px;
+        width: 22px;
+    }
+
+    .userReviewBody p {
+        width: auto;
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .userReviewOptions a:first-child {
+        font-size: 24px;
+    }
+
+    .userReviewOptions svg {
+        height: 48px;
+        width: 48px;
+    }
+
+    /* Профиль администратора */
+    .adminPage .profileName {
+        flex-direction: column-reverse;
+        align-items: unset;
+        gap: 10px;
+    }
+
+    .adminPage .profileName h2 {
+        width: fit-content;
+    }
+
+    /* Панель управления */
+    .manageItems .filters, .managePromotions .filters, .manageReviews .filters, .manageOrders .filters, .manageCategories .filters {
+        flex-wrap: wrap;
+    }
+
+    .manageItems .search, .managePromotions .search, .manageReviews .search, .manageOrders .search, .manageCategories .search {
+        padding: 10px 20px;
+        width: 48%;
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .editItemGallery {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .manageReviews .filters .search:first-child input, .manageOrders .filters .search:first-child input {
+        width: 48%;
+    }
+
+    .customer {
+        display: none;
+    }
+
+    .customerTablet {
+        display: block;
+    }
+
+    .manageCategories .filters form {
+        margin-top: 20px;
+    }
+
+    .category {
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: space-between;
+    }
+
+    .category p {
+        display: none;
+    }
+
+    .userOrdersBlock .cartItemOptions a:first-child, .manageOrders .cartItemOptions a:first-child {
+        height: auto;
     }
 }

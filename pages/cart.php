@@ -67,7 +67,7 @@
                         </div></p>
                     </div>
                 </div>
-                <div class="cartItemOptions">
+                <div class="cartMobileOptions">
                     <a href="#">К товару</a>
                     <a href="#">
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="#FF0000"xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +128,7 @@
                         </div></p>
                     </div>
                 </div>
-                <div class="cartItemOptions">
+                <div class="cartMobileOptions">
                     <a href="#">К товару</a>
                     <a href="#">
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="#FF0000"xmlns="http://www.w3.org/2000/svg">
@@ -189,7 +189,7 @@
                         </div></p>
                     </div>
                 </div>
-                <div class="cartItemOptions">
+                <div class="cartMobileOptions">
                     <a href="#">К товару</a>
                     <a href="#">
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="#FF0000"xmlns="http://www.w3.org/2000/svg">

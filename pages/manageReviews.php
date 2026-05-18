@@ -2,7 +2,7 @@
     <div class="catalogHeader">
         <div class="filters">
             <div class="search">
-                <input type="text" placeholder="ID или название товара...">
+                <input type="text" placeholder="ID товара...">
                 <img src="../assets/images/search.png">
             </div>
 
