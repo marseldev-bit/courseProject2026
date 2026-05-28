@@ -1,26 +1,41 @@
 'use strict';
 
-let userOrders = document.querySelector('.userOrdersBlock');
-let userReviews = document.querySelector('.userReviews');
-let userReviewsTitle = document.querySelector('.userReviewsTitle');
-let userOrdersButton = document.getElementById('userOrdersHistory');
-let userReviewsButton = document.getElementById('userReviews');
-let profileOption = '';
+// История заказов и Мои отзывы
+const profileOptions = document.querySelectorAll('.profileOption');
+const profileSections = document.querySelectorAll('.profileSection');
 
-userOrdersButton.addEventListener('click', () => {
-    if(profileOption != 'userOrders') {
-        userReviewsTitle.style.display = 'none';
-        userReviews.style.display = 'none';
-        userOrders.style.display = 'block';
-        profileOption = 'userOrders';
-    }
+profileOptions.forEach((option, index) => {
+    option.addEventListener('click', () => {
+        let isCurrent = false;
+        if(profileSections[index].classList.contains('active')) isCurrent = true;
+        if(document.querySelector('.profileSection.active')) { 
+            document.querySelector('.profileSection.active').classList.remove('active');
+        }
+        if(!isCurrent) profileSections[index].classList.add('active');
+    })
 })
 
-userReviewsButton.addEventListener('click', () => {
-    if(profileOption != 'userReviews') {
-        userReviewsTitle.style.display = 'block';
-        userReviews.style.display = 'flex';
-        userOrders.style.display = 'none';
-        profileOption = 'userReviews';
-    }
+
+// Модальное окно выхода из аккаунта
+let modalExit = document.querySelector('.modalExit');
+let exitBtn = document.querySelector('.profileOptions button:last-child');
+let closeModalExit = [document.querySelector('.modalExitWindow p'), document.querySelector('.modalExitOptions button:last-child')];
+
+exitBtn.addEventListener('click', () => {
+    modalExit.classList.add('active');
+})
+
+closeModalExit.forEach((close) => {
+    close.addEventListener('click', () => {
+        modalExit.classList.remove('active');
+    })
+})
+
+// Модальное окно редактирования аватара
+let avatarInput = document.querySelector('.avatarInput input');
+let avatarName = document.querySelector('.avatarInput h2');
+
+avatarInput.addEventListener('change', function() {
+    if(this.files.length > 0) avatarName.textContent = this.files[0].name;
+    else avatarName.textContent = 'Файл не выбран';
 })

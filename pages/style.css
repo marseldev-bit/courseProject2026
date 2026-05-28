@@ -154,11 +154,11 @@ nav a:hover {
     padding: 4px;
 }
 
-.option:hover {
+.option:hover, .options a.active .option {
     background-color: #F4E3B2;
 }
 
-.option:hover svg {
+.option:hover svg, .options a.active .option svg {
     fill: #4E3822;
 }
 
@@ -218,6 +218,52 @@ nav a:hover {
 
 .burgerMenu {
     display: none;
+}
+
+/* Модальное окно шапки */
+.headerModal {
+    opacity: 0;
+    transition: .3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 72px;
+    top: 60px;
+    z-index: 10;
+}
+
+.headerModal.active {
+    opacity: 1;
+    top: 67px;
+}
+
+.headerModalOptions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #60462C;
+    border: 1px solid #F4E3B2;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.headerModalOptions a {
+    color: #F4E3B2;
+    font-family: Montserrat-Medium;
+    font-size: 18px;
+}
+
+.headerModalOptions a:hover {
+    text-decoration: underline;
+}
+
+.headerModalOptions .line {
+    background-color: #F4E3B2;
+    width: 1px;
+    height: 36px;
 }
 
 /* Баннер */
@@ -361,13 +407,45 @@ nav a:hover {
     outline: none;
 }
 
+.catalogPage .catalogHeader .filters button {
+    color: #FFF8E4;
+    background-color: #4E3822;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+    cursor: pointer;
+}
+
+.catalogPage .catalogHeader .filters button:hover {
+    background-color: #60462C;
+}
+
 .catalogBlock, .catalogCards {
     width: 100%;
     margin-top: 40px;
     margin-bottom: 20px;
     display: flex;
-    justify-content: space-between;
+    gap: 15px;
     flex-wrap: wrap;
+}
+
+.catalogPage .searchCards {
+    margin-top: 40px;
+}
+
+.catalogBlock {
+    justify-content: unset;
+    gap: 15px;
+}
+
+.noItems {
+    color: #FF0000;
+    font-weight: normal;
+    font-size: 32px;
+    font-family: Montserrat-Semibold;
+    margin-bottom: 120px;
 }
 
 .card {
@@ -381,8 +459,13 @@ nav a:hover {
     margin-top: 20px;
 }
 
+.disable {
+    display: none;
+}
+
 .item {
     width: 100%;
+    min-height: 380px;
     background-color: #4E3822;
     border-radius: 20px;
     padding: 8px 8px 20px 8px;
@@ -390,6 +473,8 @@ nav a:hover {
 
 .item img {
     width: 100%;
+    height: 210px;
+    object-fit: cover;
     border-radius: 15px;
     cursor: pointer;
 }
@@ -526,18 +611,14 @@ nav a:hover {
     background-color: #4E3822;
     border-radius: 15px;
     cursor: pointer;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 1;
 }
 
 .question:hover {
     background-color: #60462C;
-}
-
-.faq .questionBlock:first-child .question {
-    border-radius: 15px 15px 0 0;
-}
-
-.faq .questionBlock:first-child .question svg {
-    transform: rotate(180deg);
 }
 
 .question h1 {
@@ -553,19 +634,16 @@ nav a:hover {
     left: 0;
 }
 
-.question:hover svg {
-    top: 5px;
-} 
-
-.faq .questionBlock:first-child .question:hover svg {
-    top: -5px;
-}
-
 .answer {
-    width: 100%;
-    padding: 10px 20px;
-    border-radius: 0 0 15px 15px;
+    transition: .5s ease-in-out;
+    max-height: 0;
     border: 2px solid #4E3822;
+    position: relative;
+    left: 0;
+    bottom: 20px;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
 }
 
 .answer p {
@@ -573,6 +651,19 @@ nav a:hover {
     font-size: 18px;
     font-family: Montserrat-Regular;
     line-height: 24px;
+    padding: 30px 20px 10px 20px;
+}
+
+.questionBlock.active .question {
+    border-radius: 15px 15px 0 0;
+}
+
+.questionBlock.active .question svg {
+    transform: rotate(180deg);
+}
+
+.questionBlock.active .answer {
+    max-height: 200px;
 }
 
 /* Акции */
@@ -1160,6 +1251,30 @@ footer nav a {
     opacity: 50%;
 }
 
+.reg .errorField .error {
+    width: 100%;
+    background-color: #FF0000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding-bottom: 5px;
+    gap: 5px;
+}
+
+.reg .error input, .reg .error select {
+    border: 1px solid #FF0000;
+}
+
+.reg .error p {
+    color: white;
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    margin-left: 16px;
+    height: fit-content;
+    margin-bottom: 0;
+}
+
 .regButtons {
     display: flex;
     width: 100%;
@@ -1443,37 +1558,42 @@ footer nav a {
     cursor: pointer;
 }
 
+.orderOptions button:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
 .orderOptions button:hover {
     background-color: #4E3822;
     color: #FFF8E4;
 }
 
-.orderOptions button:first-child {
+.orderOptions button.active {
     background-color: #4E3822;
     color: #FFF8E4;
-    border-radius: 10px 0 0 10px;
 }
 
 .orderOptions button:last-child {
     border-radius: 0 10px 10px 0;
 }
 
-.orderPickup {
-    display: none;
+.orderAddress, .orderInfo {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    display: flex;
+    margin-bottom: 20px;
 }
 
 .orderForm {
     margin-top: 40px;
     margin-bottom: 40px;
     width: 100%;
+    flex-direction: column;
+    display: none;
 }
 
-.orderAddress, .orderInfo {
-    width: 100%;
+.orderForm.active {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 20px;
 }
 
 .orderField {
@@ -1565,7 +1685,7 @@ footer nav a {
     margin-bottom: 80px;
 }
 
-.userOrdersBlock, .profilePage .userReviews, .userReviewsTitle {
+.profileSection {
     display: none;
 }
 
@@ -1585,11 +1705,7 @@ footer nav a {
     border-radius: 50%;
 }
 
-.avatar input {
-    display: none;
-}
-
-.avatar label {
+.profileAvatar label {
     width: 160px;
     height: 160px;
     background-color: #4E3822;
@@ -1603,16 +1719,47 @@ footer nav a {
 
 }
 
-.avatar label:hover, .profileAvatar:hover .avatar label {
+.profileAvatar label:hover, .profileAvatar:hover label {
     background-color: #60462C;
 }
 
-.avatar label p {
+.profileAvatar label p {
     font-size: 20px;
     font-family: Montserrat-Medium;
-    color: #FFF8E4;
+    color: white;
     width: 120px;
     text-align: center;
+}
+
+.profileAvatar .avatar {
+    position: relative;
+}
+
+.profileAvatar .avatar img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.profileAvatar .avatar img:hover {
+    opacity: 0;
+}
+
+.profileAvatar .avatar p {
+    font-size: 18px;
+    color: white;
+    font-family: Montserrat-Medium;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .profileName {
@@ -1638,11 +1785,16 @@ footer nav a {
 }
 
 .profileName svg {
+    width: 30px;
+    height: 30px;
     cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 6px;
 }
 
 .profileName svg:hover {
-    transform: scale(0.9);
+    background-color: #cec8b9;
 }
 
 .profileInfo {
@@ -1694,6 +1846,10 @@ footer nav a {
 
 .profilePage footer {
     margin-top: 160px;
+}
+
+.profileSection.active {
+    display: block;
 }
 
 .userOrdersTitle, .userReviewsTitle {
@@ -1770,7 +1926,6 @@ footer nav a {
     flex-direction: column;
     gap: 120px;
 }
-
 
 .userReview {
     display: flex;
@@ -1862,7 +2017,7 @@ footer nav a {
     opacity: 0;
 }
 
-.adminPage .profileName h2 {
+.profileBlock .profileName h2 {
     font-weight: normal;
     font-family: Montserrat-Medium;
     font-size: 20px;
@@ -1870,6 +2025,179 @@ footer nav a {
     background-color: #4E3822;
     padding: 5px 10px;
     border-radius: 30px;
+}
+
+.modalExit, .editName, .editAvatar, .createCategory {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.modalExit.active, .editName, .editAvatar, .createCategory{
+    display: flex;
+}
+
+.modalExitWindow, .editNameWindow, .editAvatarWindow, .createCategoryWindow {
+    position: relative;
+    max-width: 700px;
+    gap: 20px;
+    padding: 50px 40px 30px 40px;
+    background-color: #FFF8E4;
+    border-radius: 20px;
+}
+
+.modalExitWindow p, .editNameWindow p, .editAvatarWindow p, .createCategoryWindow p {
+    font-size: 24px;
+    color: #4E3822;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Montserrat-Medium;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+}
+
+.modalExitWindow p:hover, .editNameWindow p:hover, .editAvatarWindow p:hover, .createCategoryWindow p:hover {
+    background-color: #cec8b9;
+}
+
+.modalExitBody, .editNameBody, .editAvatarBody, .createCategoryBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.modalExitBody h1, .editNameBody h1, .editAvatarBody h1, .createCategoryBody h1 {
+    font-weight: normal;
+    color: #4E3822;
+    font-size: 32px;
+    font-family: Gramatika-Bold;
+    text-align: center;
+}
+
+.editNameBody input, .categoryInput input {
+    width: 440px;
+    background-color: transparent;
+    border: 1px solid #60462C;
+    border-radius: 10px;
+    padding: 8px 16px;
+    color: #4E3822;
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    outline: none;
+}
+
+.editNameBody input::placeholder, .categoryInput input::placeholder {
+    color: #4E3822;
+    opacity: 70%;
+}
+
+.modalExitOptions, .editNameOptions, .editAvatarOptions, .createCategoryOptions {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+.modalExitOptions button, .editNameOptions button, .editNameOptions a, .editAvatarOptions a, .editAvatarOptions button, .createCategoryOptions button, .createCategoryOptions a, .deleteCategory .modalExitOptions a {
+    background-color: #4E3822;
+    border: 2px solid #4E3822;
+    color: #FFF8E4;
+    width: 50%;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.modalExitOptions button:hover, .editNameOptions button:hover, .editAvatarOptions button:hover, .createCategoryOptions button:hover, .deleteCategory .modalExitOptions a:hover {
+    background-color: #60462C;
+    border: 2px solid #60462C;
+}
+
+.modalExitOptions button:last-child, .editNameOptions a, .editAvatarOptions a, .createCategoryOptions a {
+    background-color: transparent;
+    border: 2px solid #FF0000;
+    color: #FF0000;
+}
+
+.modalExitOptions button:last-child:hover, .editNameOptions a:hover, .editAvatarOptions a:hover, .createCategoryOptions a:hover {
+    background-color: #FF0000;
+    color: #FFF8E4;
+}
+
+.nameInput, .categoryInput {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nameInput label, .categoryInput label {
+    font-weight: normal;
+    font-family: Montserrat-Medium;
+    font-size: 20px;
+    color: #4E3822;
+}
+
+.nameInput h2, .editAvatarInput h2, .categoryInput h2 {
+    font-weight: normal;
+    color: #FF0000;
+    font-family: Montserrat-Regular;
+    font-size: 16px;   
+}
+
+.editAvatarWindow {
+    width: 600px;
+}
+
+.editAvatarInput {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.avatarInput {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatarInput input {
+    display: none;
+}
+
+.avatarInput label {
+    cursor: pointer;
+    padding: 6px 12px;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 2px solid #4E3822;
+    color: #4E3822;
+    font-size: 18px;
+    font-family: Montserrat-Medium;
+}
+
+.avatarInput label:hover {
+    text-decoration: underline;
+}
+
+.avatarInput h2 {
+    font-weight: normal;
+    color: #4E3822;
+    font-family: Montserrat-Regular;
+    font-size: 18px;
 }
 /* ---------- Конец профиля ---------- */
 
@@ -1884,11 +2212,11 @@ footer nav a {
     margin-bottom: 80px;
 }
 
-.managePromotions, .manageReviews, .manageOrders, .manageCategories {
-    display: none;
+.manageSection {
+    display: block;
 }
 
-.manageOptions button {
+.manageOptions a {
     font-size: 20px;
     color: #4E3822;
     padding: 8px 16px;
@@ -1899,15 +2227,10 @@ footer nav a {
     background-color: #FFF8E4;
 }
 
-.manageOptions button:first-child {
-    font-size: 20px;
+.manageOptions .active {
     color: #FFF8E4;
+    transition: none;
     background-color: #4E3822;
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-family: Montserrat-Medium;
-    border: 2px solid #4E3822;
-    cursor: pointer;
 }
 
 .managePage .filters .search input {
@@ -1974,6 +2297,11 @@ footer nav a {
     background-color: #60462C;
 }
 
+.search button {
+    background-color: transparent;
+    border: none;
+}
+
 /* ---------- Редактирование товара ---------- */
 .editItemPage header {
     margin-bottom: 80px;
@@ -2006,7 +2334,7 @@ footer nav a {
 .editItem {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 60px;
     width: 100%;
 }
 
@@ -2015,6 +2343,14 @@ footer nav a {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.itemField h3, .itemProperties h3 {
+    font-weight: normal;
+    color: #FF0000;
+    font-size: 18px;
+    font-family: Montserrat-Regular;
+    margin-top: -10px;
 }
 
 .itemField label {
@@ -2035,6 +2371,36 @@ footer nav a {
     font-family: Montserrat-Regular;
 }
 
+.itemField .selectCategory {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.itemField .selectCategory button, .itemField .editItemImages button {
+    background-color: #4E3822;
+    color: #FFF8E4;
+    font-size: 22px;
+    font-family: Montserrat-Medium;
+    border: none;
+    border-radius: 10px;
+    width: 400px;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.itemField .editItemImages button {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.itemField .selectCategory button:hover, .itemField .editItemImages button:hover {
+    background-color: #60462C;
+}
+
 .itemField input::placeholder, .itemField select::placeholder, .itemField textarea::placeholder, .itemProperties input::placeholder {
     color: #4E3822;
     opacity: 70%;
@@ -2048,6 +2414,12 @@ footer nav a {
     height: 120px;
 }
 
+.itemField .editItemImages p {
+    font-size: 20px;
+    font-family: Montserrat-Regular;
+    color: #4E3822;
+}
+
 .editItem h2 {
     font-size: 24px;
     font-family: Montserrat-Semibold;
@@ -2056,22 +2428,25 @@ footer nav a {
 
 .itemProperties {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     width: 100%;
-    gap: 30px;
-}
-
-.propertyBlock {
-    width: 100%;
-    display: flex;
-    gap: 10px;
+    row-gap: 30px;
+    margin-top: -20px;
+    justify-content: space-between;
 }
 
 .itemProperties .property {
-    width: 50%;
+    width: 49%;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.itemProperties h1 {
+    font-size: 24px;
+    color: #FF0000;
+    font-family: Montserrat-Medium;
+    font-weight: normal;
 }
 
 .itemProperties .property label {
@@ -2135,7 +2510,8 @@ footer nav a {
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .editItemImage {
@@ -2376,6 +2752,17 @@ footer nav a {
     border: 2px solid #4E3822;
 }
 
+.manageOrders .cartItem .cartItemOptions select {
+    background-color: transparent;
+    border: 2px solid #4E3822;
+    color: #4E3822;
+    font-family: Montserrat-Semibold;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 .manageOrders .userOrders:nth-child(4n+2) .cartItemOptions a:last-child {
     background-color: transparent;
     color: #FF0000;
@@ -2404,7 +2791,7 @@ footer nav a {
 .manageCategories .catalogHeader .filters {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 10px;
 }
 
 .manageCategories .catalogHeader form {
@@ -2413,26 +2800,24 @@ footer nav a {
     gap: 10px;
 }
 
-.manageCategories .catalogHeader form input {
-    color: #4E3822;
-    background-color: transparent;
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-size: 20px;
-    font-family: Montserrat-medium;
-    border: 2px solid #4E3822;
-    outline: none;
-}
 
-.manageCategories .catalogHeader form input::placeholder {
-    color: #4E3822;
-    opacity: 70%;
+.manageCategories .catalogHeader form button {
+    background-color: transparent;
+    padding: 0;
+    border: none;
 }
 
 .manageCategories .categories {
     display: flex;
     flex-direction: column;
     gap: 40px;
+}
+
+.manageCategories .categoriesEmpty {
+    font-weight: normal;
+    font-size: 24px;
+    color: #FF0000;
+    font-family: Montserrat-Medium;
 }
 
 .manageCategories .category {
@@ -2489,7 +2874,165 @@ footer nav a {
     background-color: #FF0000;
     color: #FFF8E4;
 }
+
+.createCategory .chars {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.createCategory .charsHead {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.createCategory .charsHead h2 {
+    font-weight: normal;
+    color: #4E3822;
+    font-size: 24px;
+    font-family: Montserrat-Semibold;
+}
+
+.createCategory .charsHead a {
+    color: #FFF8E4;
+    font-family: Montserrat-Medium;
+    font-size: 18px;
+    padding: 5px 10px;
+    background-color: #4E3822;
+    border-radius: 10px;
+}
+
+.createCategory .charsHead a:hover {
+    background-color: #60462C;
+}
+
+.createCategory .chars h3 {
+    font-size: 20px;
+    color: #FF0000;
+    font-family: Montserrat-Semibold;
+}
+
+.createCategory .char, .createCategory .newChar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.createCategory .char h4 {
+    font-weight: normal;
+    color: black;
+    font-size: 18px;
+    font-family: Montserrat-Medium;
+}
+
+.createCategory .charOptions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.createCategory .charOptions a, .createCategory .newChar .charOptions button, .createCategory .charEdit .charOptions button {
+    background-color: #4E3822;
+    border: 2px solid #4E3822;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: Montserrat-Medium;
+    color: #FFF8E4;
+    padding: 5px 10px;
+}
+
+.createCategory .charOptions a:hover, .createCategory .newChar .charOptions button:hover, .createCategory .charEdit .charOptions button:hover {
+    background-color: #60462C;
+    border: 2px solid #60462C;
+}
+
+.createCategory .charOptions button, .createCategory .newChar .charOptions a, .createCategory .charEdit .charOptions a {
+    background-color: transparent;
+    color: #FF0000;
+    border: 2px solid #FF0000;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-family: Montserrat-Medium;
+    cursor: pointer;
+}
+
+.createCategory .charOptions button:hover, .createCategory .newChar .charOptions a:hover, .createCategory .charEdit .charOptions a:hover {
+    background-color: #FF0000;
+    color: #FFF8E4;
+}
+
+.createCategory .newChar input, .createCategory .char input {
+    font-size: 16px;
+    color: black;
+    border: 1px solid black;
+    outline: none;
+    padding: 5px 10px;
+    font-family: Montserrat-Regular;
+    background-color: #FFF8E4;
+    border-radius: 10px;
+}
+
+
+.editCategory h2 {
+    font-size: 18px;
+    font-family: Montserrat-Regular;
+    color: #FF0000;
+    font-weight: normal;
+}
 /* ---------- Конец панели управления ---------- */
+
+
+/* PHP */
+.regSuccess {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 2px solid green;
+    border-radius: 20px;
+    background-color: rgb(145, 255, 145);
+    padding: 20px 60px 20px 20px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.regSuccess h1 {
+    color: green;
+    font-weight: normal;
+    font-size: 24px;
+    font-family: Gramatika-Bold;
+}
+
+.regSuccess p {
+    font-size: 18px;
+    color: green;
+    font-family: Montserrat-Medium;
+}
+
+.regSuccess button {
+    color: green;
+    font-size: 28px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    cursor: pointer;
+    transform: translateX(0);
+    transition: ease-out;
+}
+
+.regSuccess button:hover {
+    transform: scale(0.9);
+}
+
+.hide {
+    transform: translateX(500px);
+}
 
 
 /* ---------- Адаптив под телефон ---------- */

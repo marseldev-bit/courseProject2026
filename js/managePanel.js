@@ -1,37 +1,32 @@
 'use strict';
 
-function selectPanel(manPanel, arr, panelButton, arrButtons) {
-    panelButton.addEventListener('click', () => {
-        for(let panel of panelArray) {
-            if(panel == manPanel) panel.style.display = 'block';
-            else panel.style.display = 'none';
-        }
-
-        for(let button of arrButtons) {
-            if(button == panelButton) {
-                button.style.background = '#4E3822';
-                button.style.color = '#FFF8E4';
-            }
-            else {
-                button.style.background = '#FFF8E4';
-                button.style.color = '#4E3822';
-            }
-        }
-    })
+if(document.querySelector('.managePromotions')) {
+    document.querySelector('.manageOptions a.active').classList.remove('active');
+    document.getElementById('managePromotions').classList.add('active');
+}
+else if(document.querySelector('.manageReviews')) {
+    document.querySelector('.manageOptions a.active').classList.remove('active');
+    document.getElementById('manageReviews').classList.add('active');
+}
+else if(document.querySelector('.manageOrders')) {
+    document.querySelector('.manageOptions a.active').classList.remove('active');
+    document.getElementById('manageOrders').classList.add('active');
+}
+else if(document.querySelector('.manageCategories')) {
+    document.querySelector('.manageOptions a.active').classList.remove('active');
+    document.getElementById('manageCategories').classList.add('active');
+}
+else if(document.querySelector('.manageitems')) {
+    document.querySelector('.manageOptions a.active').classList.remove('active');
+    document.getElementById('manageitems').classList.add('active');
 }
 
-let manageItems = document.querySelector('.manageItems');
-let managePromotions = document.querySelector('.managePromotions');
-let manageReviews = document.querySelector('.manageReviews');
-let manageOrders = document.querySelector('.manageOrders');
-let manageCategories = document.querySelector('.manageCategories');
-let panelArray = [manageItems, managePromotions, manageReviews, manageOrders, manageCategories];
 
-let manageItemsButton = document.getElementById('manageItems');
-let managePromotionsButton = document.getElementById('managePromotions');
-let manageReviewsButton = document.getElementById('manageReviews');
-let manageOrdersButton = document.getElementById('manageOrders');
-let manageCategoriesButton = document.getElementById('manageCategories');
-let panelButtonsArray = [manageItemsButton, managePromotionsButton, manageReviewsButton, manageOrdersButton, manageCategoriesButton];
+// Добавление фотографий товару и акции
+let imagesInput = document.querySelector('.itemField .editItemImages input');
+let imagesQuanity = document.querySelector('.itemField .editItemImages p');
 
-for(let i = 0; i < 5; i++) selectPanel(panelArray[i], panelArray, panelButtonsArray[i], panelButtonsArray);
+imagesInput.addEventListener('change', function() {
+    if(this.files.length == 1) imagesQuanity.textContent = this.files[0].name;
+    else if(this.files.length > 1) imagesQuanity.textContent = "Файлов выбрано: " + this.files.length;
+})
