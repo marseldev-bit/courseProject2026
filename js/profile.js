@@ -1,21 +1,5 @@
 'use strict';
 
-// История заказов и Мои отзывы
-const profileOptions = document.querySelectorAll('.profileOption');
-const profileSections = document.querySelectorAll('.profileSection');
-
-profileOptions.forEach((option, index) => {
-    option.addEventListener('click', () => {
-        let isCurrent = false;
-        if(profileSections[index].classList.contains('active')) isCurrent = true;
-        if(document.querySelector('.profileSection.active')) { 
-            document.querySelector('.profileSection.active').classList.remove('active');
-        }
-        if(!isCurrent) profileSections[index].classList.add('active');
-    })
-})
-
-
 // Модальное окно выхода из аккаунта
 let modalExit = document.querySelector('.modalExit');
 let exitBtn = document.querySelector('.profileOptions button:last-child');

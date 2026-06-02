@@ -533,8 +533,9 @@ nav a:hover {
     gap: 5px;
 }
 
-.buy button {
+.buy button:first-child {
     font-family: Montserrat-Medium;
+    height: 50px;
     font-size: 26px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -547,17 +548,35 @@ nav a:hover {
     cursor: pointer;
 }
 
-.item:hover, .buy button:hover, .buy svg:hover {
+.item:hover, .buy button:hover, .buy button:last-child:hover {
     background-color: #60462C;
 }
 
-.buy svg {
-    height: 100%;
-    width: fit-content;
-    padding: 5px;
+.buy button:last-child {
+    width: 54px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
     background-color: #4E3822;
+    border: 2px solid #4E3822;
     border-radius: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buy button.inCart {
+    background-color: #FFF8E4;
+}
+
+.buy button.inCart:hover {
+    background-color: #FFF8E4;
+}
+
+.buy button svg {
+    width: 36px;
+    height: 36px;
 }
 
 .allItems {
@@ -676,13 +695,14 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: center;
     margin-bottom: 200px;
 }
 
 .promotions {
+    width: fit-content;
     display: flex;
     gap: 40px;
+    margin-left: 170px;
 }
 
 .prom {
@@ -699,6 +719,7 @@ nav a:hover {
 }
 
 .prom img {
+    object-fit: cover;
     width: 50%;
     border-radius: 20px 0 0 20px;
 }
@@ -708,6 +729,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 50%;
 }
 
 .promInfo h1 {
@@ -736,6 +758,7 @@ nav a:hover {
 .slider {
     display: flex;
     gap: 10px;
+    align-self: center;
 }
 
 .slider svg {
@@ -919,11 +942,25 @@ footer nav a {
 
 .itemImage {
     position: relative;
+    width: 600px;
+    height: 350px;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
 }
 
-.itemImage img {
+.itemPage .itemSlides {
+    display: flex;
+    width: fit-content;
+    border-radius: 20px;
+}
+
+.itemSlides img {
     border-radius: 20px;
     width: 600px;
+    height: 350px;
+    object-fit: cover;
 }
 
 .itemPage .slider {
@@ -940,21 +977,24 @@ footer nav a {
 }
 
 .itemImages {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    align-items: center;
+    width: 460px;
+    overflow-x: hidden;
+    position: relative;
+    height: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .itemImages img {
     width: 100px;
-    height: fit-content;
+    height: 70px;
+    object-fit: cover;
     opacity: 50%;
     border-radius: 10px;
     cursor: pointer;
 }
 
-.itemImages img:first-child {
+.itemImages img.active {
     opacity: 100%;
 }
 
@@ -962,15 +1002,24 @@ footer nav a {
     opacity: 100%;
 }
 
+.itemImagesBlock {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
 .itemBuy {
     margin-top: 10px;
     width: 100%;
     display: flex;
-    /* gap: 10px; */
 }
 
 .itemBuy a {
     width: 100%;
+    height: 54px;
     color: #FFF8E4;
     background-color: #4E3822;
     border-radius: 10px;
@@ -981,18 +1030,32 @@ footer nav a {
     justify-content: center;
 }
 
-.itemBuy a:hover, .itemBuy svg:hover {
+.itemBuy a:hover, .itemBuy button:hover {
     background-color: #60462C;
 }
 
-.itemBuy svg {
-    width: 54px;
+.itemBuy button {
+    width: 60px;
     height: 54px;
+    background-color: transparent;
+    border: none;
     background-color: #4E3822;
-    padding: 5px;
+    border: 2px solid #4E3822;
     border-radius: 10px;
-    margin-left: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.itemBuy button.inCart {
+    background-color: #FFF8E4;
+}
+
+.itemBuy button svg {
+    width: 40px;
+    height: 40px;
 }
 
 .itemInfo {
@@ -1013,6 +1076,7 @@ footer nav a {
     flex-direction: column;
     width: 90%;
     gap: 20px;
+    margin-bottom: 30px;
 }
 
 .char {
@@ -1037,15 +1101,30 @@ footer nav a {
     background-color: #4E3822;
 }
 
+.itemInfo a {
+    color: #FFF8E4;
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    background-color: #4E3822;
+    padding: 8px 16px;
+    border-radius: 10px;
+}
+
+.itemInfo a:hover {
+    background-color: #60462C;
+}
+
 /* Оставить отзыв */
 .myReview {
-    margin-top: 40px;
-    margin-bottom: 120px;
     display: flex;
     flex-direction: column;
 }
 
-.myReview h1 {
+.writeReview .modalExitBody h1 {
+    font-size: 40px;
+}
+
+.myReview h2 {
     font-weight: normal;
     font-size: 24px;
     font-family: Montserrat-Medium;
@@ -1061,24 +1140,31 @@ footer nav a {
 
 .stars {
     display: flex;
-    gap: 5px;
 }
 
-.stars svg:hover {
-    fill: #4E3822;
+.stars .star {
+    padding-right: 5px;
     cursor: pointer;
+}
+
+.stars svg {
+    height: 100%;
+}
+
+.stars .star.active svg {
+    fill: #4E3822;
 }
 
 .myReview textarea {
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     background-color: transparent;
     border-radius: 10px;
     width: 600px;
     height: 200px;
     border: 2px solid #4E3822;
     color: #4E3822;
-    padding: 10px;
+    padding: 8px 16px;
     font-size: 18px;
     font-family: Montserrat-Regular;
 }
@@ -1104,6 +1190,75 @@ footer nav a {
     color: #4E3822;
 }
 
+.writeReview .modalExitBody .modalExitOptions button {
+    background-color: #4E3822;
+    border: none;
+    color: #FFF8E4;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 24px;
+}
+
+.writeReview .modalExitBody .modalExitOptions button:hover {
+    background-color: #60462C;
+}
+
+.writeReview .modalExitBody .modalExitOptions a {
+    font-size: 24px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 50%;
+    background-color: transparent;
+    border: 2px solid #FF0000;
+    font-family: Montserrat-medium;
+    color: #FF0000;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.writeReview .modalExitBody .modalExitOptions a:hover {
+    background-color: #FF0000;
+    color: #FFF8E4;
+}
+
+.writeReview .myReview h3 {
+    font-weight: normal;
+    color: #FF0000;
+    font-size: 18px;
+    font-family: Montserrat-Medium;
+}
+
+.userReviewsBlock .emptyReviews {
+    color: #4E3822;
+    font-size: 24px;
+    font-family: Montserrat-Semibold;
+    font-weight: normal;
+}
+
+.reviewStatus .modalExitWindow .modalExitBody .modalExitOptions a {
+    background-color: #FFF8E4;
+    color: #FF0000;
+    border: 2px solid #FF0000;
+    font-size: 24px;
+}
+
+.reviewStatus .modalExitWindow .modalExitBody .modalExitOptions a:hover {
+    background-color: #FF0000;
+    color: #FFF8E4;
+}
+
+.reviewStatus .modalExitBody .modalExitOptions button {
+    background-color: #4E3822;
+    color: #FFF8E4;
+    border: 2px solid #4E3822;
+    font-size: 24px;
+}
+
+.reviewStatus .modalExitBody .modalExitOptions button:hover {
+    background-color: #60462C;
+    border: 2px solid #60462C;
+}
+
 /* Отзывы */
 .reviewsBlock {
     display: flex;
@@ -1116,8 +1271,8 @@ footer nav a {
 
 .reviews {
     display: flex;
-    justify-content: space-between;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .review {
@@ -1125,6 +1280,7 @@ footer nav a {
     border-radius: 20px;
     padding: 30px;
     border: 3px solid #4E3822;
+    width: 32%;
 }
 
 .name {
@@ -1137,6 +1293,7 @@ footer nav a {
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    object-fit: cover;
 }
 
 .name h1 {
@@ -1146,6 +1303,7 @@ footer nav a {
     font-weight: normal;
     margin-left: 10px;
     margin-right: 20px;
+    line-height: 30px;
 }
 
 .rate {
@@ -1184,6 +1342,22 @@ footer nav a {
 .itemPage .allItems:hover {
     left: 0;
     top: 5px;
+}
+
+.itemPage .allReviews {
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    color: #4E3822;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.itemPage .allReviews:hover {
+    bottom: 5px;
 }
 
 /* Похожие товары  */
@@ -1325,6 +1499,10 @@ footer nav a {
     text-align: center;
 }
 
+.cartPage .emptyOrders {
+    margin-bottom: 120px;
+}
+
 .cart {
     display: flex;
     flex-direction: column;
@@ -1351,20 +1529,16 @@ footer nav a {
 }
 
 .cartItemBlock img, .userReviewBodyBlock img {
-    cursor: pointer;
     width: 80px;
     height: 80px;
     border-radius: 10px;
-}
-
-.cartItemBlock img {
     object-fit: cover;
 }
 
 .cartItemInfo {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 20px;
 }
 
 .cartItemInfoBlock h3 {
@@ -1376,7 +1550,10 @@ footer nav a {
     font-size: 24px;
     font-family: Montserrat-Medium;
     color: #4E3822;
-    cursor: pointer;
+}
+
+.cartItemInfo h1 {
+    width: 800px;
 }
 
 .cartItemPrice {
@@ -1415,6 +1592,8 @@ footer nav a {
     font-size: 24px;
     color: #FFF8E4;
     cursor: pointer;
+    width: 100%;
+    height: 100%;
 }
 
 .cartItemQuanity h2 {
@@ -1483,6 +1662,26 @@ footer nav a {
     margin-bottom: 120px;
 }
 
+.clearCart {
+    margin-top: -20px;
+    margin-bottom: 100px;
+}
+
+.clearCart a {
+    background-color: #4E3822;
+    border: 2px solid #4E3822;
+    border-radius: 15px;
+    padding: 8px 16px;
+    color: #FFF8E4;
+    font-size: 24px;
+    font-family: Montserrat-Semibold;
+}
+
+.clearCart a:hover {
+    background-color: transparent;
+    color: #4E3822;
+}
+
 .totalCost {
     width: 100%;
     background-color: #4E3822;
@@ -1521,6 +1720,13 @@ footer nav a {
 .totalCost button:hover {
     border: 1px solid #FFF8E4;
 }
+
+.emptyCart {
+    color: #FF0000;
+    font-family: Montserrat-semibold;
+    font-size: 32px;
+    margin-bottom: 120px;
+}
 /* ---------- Конец "Корзина" ---------- */
 
 
@@ -1548,7 +1754,7 @@ footer nav a {
     display: flex;
 }
 
-.orderOptions button {
+.orderOptions a {
     font-size: 20px;
     font-family: Montserrat-Medium;
     color: #4E3822;
@@ -1558,21 +1764,21 @@ footer nav a {
     cursor: pointer;
 }
 
-.orderOptions button:first-child {
+.orderOptions a:first-child {
     border-radius: 10px 0 0 10px;
 }
 
-.orderOptions button:hover {
+.orderOptions a:hover {
     background-color: #4E3822;
     color: #FFF8E4;
 }
 
-.orderOptions button.active {
+.orderOptions a.active {
     background-color: #4E3822;
     color: #FFF8E4;
 }
 
-.orderOptions button:last-child {
+.orderOptions a:last-child {
     border-radius: 0 10px 10px 0;
 }
 
@@ -1589,11 +1795,6 @@ footer nav a {
     margin-bottom: 40px;
     width: 100%;
     flex-direction: column;
-    display: none;
-}
-
-.orderForm.active {
-    display: flex;
 }
 
 .orderField {
@@ -1645,6 +1846,13 @@ footer nav a {
     width: fit-content;
 }
 
+.orderField h2 {
+    font-family: Montserrat-Regular;
+    font-size: 20px;
+    color: #FF0000;
+    font-weight: normal;
+}
+
 .confirmOrder {
     margin-bottom: 120px;
     display: flex;
@@ -1677,16 +1885,59 @@ footer nav a {
     background-color: #FFF8E4;
     color: #4E3822;
 }
+
+.orderSuccessPage h2 {
+    font-size: 32px;
+    color: #4E3822;
+    font-family: Montserrat-Medium;
+    font-weight: normal;
+    margin-top: 140px;
+}
+
+.orderSuccessPage .thanksgiving {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.orderSuccessPage .thanksgiving h1 {
+    color: #4E3822;
+    font-family: Gramatika-Bold;
+    font-size: 48px;
+}
+
+.orderSuccessOptions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 200px;
+}
+
+.orderSuccessOptions a {
+    background-color: #4E3822;
+    color: #FFF8E4;
+    border: 2px solid #4E3822;
+    border-radius: 15px;
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    padding: 10px 20px;
+}
+
+.orderSuccessOptions a:last-child {
+    background-color: #60462C;
+}
+
+.orderSuccessOptions a:hover {
+    background-color: transparent;
+    color: #4E3822;
+}
 /* ---------- Конец "Оформление заказа" ---------- */
 
 
 /* ---------- Профиль ---------- */
 .profilePage header {
     margin-bottom: 80px;
-}
-
-.profileSection {
-    display: none;
 }
 
 .profile {
@@ -1848,7 +2099,7 @@ footer nav a {
     margin-top: 160px;
 }
 
-.profileSection.active {
+.profileSection {
     display: block;
 }
 
@@ -1919,6 +2170,48 @@ footer nav a {
     font-family: Montserrat-Medium;
     color: #4E3822;
     text-decoration: underline;
+}
+
+.userOrders .cartItemInfo {
+    width: auto;
+}
+
+.userOrders .cartItemPrice h2 {
+    text-wrap: nowrap;
+}
+
+.emptyOrders h2 {
+    font-weight: normal;
+    color: #4E3822;
+    font-size: 24px;
+    font-family: Montserrat-Semibold;
+    margin-bottom: 20px;
+}
+
+.emptyOrders a {
+    background-color: #4E3822;
+    color: #FFF8E4;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+}
+
+.emptyOrders a:hover {
+    background-color: #60462C;
+}
+
+.orderCode .modalExitBody h3 {
+    font-weight: normal;
+    font-size: 60px;
+    letter-spacing: 30px;
+    font-family: Gramatika-Bold;
+    color: #4E3822;
+    margin-bottom: 20px;
+}
+
+.orderCode .modalExitBody h2:last-child {
+    color: #FF0000;
 }
 
 .userReviews {
@@ -2198,6 +2491,69 @@ footer nav a {
     color: #4E3822;
     font-family: Montserrat-Regular;
     font-size: 18px;
+}
+
+.modalExit.auth .modalExitOptions a {
+    background-color: #4E3822;
+    border-radius: 10px;
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    width: 50%;
+    color: #FFF8E4;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.modalExit.auth .modalExitOptions a:hover {
+    background-color: #60462C;
+}
+
+.modalExit.auth h2 {
+    margin-top: -20px;
+    text-align: center;
+    color: #4E3822;
+    font-family: Montserrat-Medium;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.orderModal .editNameBody {
+    align-items: unset;
+}
+
+.orderModal .orderInfoModal {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.orderModal .orderInfoModal h2 {
+    font-weight: normal;
+    font-size: 20px;
+    color: #4E3822;
+    font-family: Montserrat-Medium;
+}
+
+.orderModal .orderInfoModal h2 span {
+    font-family: Montserrat-Semibold;
+}
+
+.orderModal h3 {
+    font-weight: normal;
+    text-align: center;
+    font-family: Montserrat-Regular;
+    color: #60462C;
+    font-size: 18px;
+}
+
+.orderModal h3 a {
+    color: #4E3822;
+    font-family: Montserrat-Medium;
+}
+
+.orderModal h3 a:hover {
+    text-decoration: underline;
 }
 /* ---------- Конец профиля ---------- */
 
@@ -2664,12 +3020,18 @@ footer nav a {
     padding: 8px 16px;
 }
 
-.manageReviews .catalogHeader, .manageOrders .catalogHeader {
+.manageOrders .catalogHeader {
     margin-bottom: 60px;
 }
 
-.manageReviews .userReviewsBlock:last-child {
-    margin-top: 160px;
+.manageReviews {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.manageReviews .userReviewsBlock {
+    margin-bottom: 40px;
 }
 
 .manageReviews .userReviewsBlock p:first-child {
@@ -2702,22 +3064,29 @@ footer nav a {
 }
 
 
-.manageReviews .userReviewOptions a:last-child, .manageReviews .userReviewsBlock:last-child .userReviewOptions a {
+.manageReviews .userReviewOptions a {
     font-size: 24px;
-    color: #FF0000;
-    border: 2px solid #FF0000;
+    color: #FFF8E4;
+    border: 2px solid #4E3822;
     border-radius: 10px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 10px 20px;
     font-family: Montserrat-Medium;
     font-size: 20px;
-    background-color: #FFF8E4;
+    background-color: #4E3822;
 }
 
-.manageReviews .userReviewOptions a:last-child:hover, .manageReviews .userReviewsBlock:last-child .userReviewOptions a:hover {
+.manageReviews .userReviewOptions a:hover {
+    background-color: #FFF8E4;
+    color: #4E3822;
+}
+
+.manageReviews .userReviewOptions a.cancel {
+    background-color: transparent;
+    color: #FF0000;
+    border: 2px solid #FF0000;
+}
+
+.manageReviews .userReviewOptions a.cancel:hover {
     background-color: #FF0000;
     color: #FFF8E4;
 }
@@ -2738,6 +3107,31 @@ footer nav a {
     color: #4E3822;
     font-weight: normal;
 } 
+
+.manageOrders .cartItemBlock {
+    width: 100%;
+}
+
+.manageOrders .orderModal a {
+    width: 100%;
+    background-color: #4E3822;
+    color: #FFF8E4;
+    border-radius: 15px;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: Montserrat-Medium;
+    text-align: center;
+}
+
+.manageOrders .orderModal a:hover {
+    background-color: #60462C;
+}
+
+.manageOrders .cartItemInfo h1 {
+    width: fit-content;
+    line-height: 36px;
+}
 
 .manageOrders .separateLine {
     margin-top: 30px;
@@ -2763,13 +3157,13 @@ footer nav a {
     cursor: pointer;
 }
 
-.manageOrders .userOrders:nth-child(4n+2) .cartItemOptions a:last-child {
+.manageOrders .userOrders .cancel {
     background-color: transparent;
     color: #FF0000;
     border: 2px solid #FF0000;
 }
 
-.manageOrders .userOrders:nth-child(4n+2) .cartItemOptions a:last-child:hover {
+.manageOrders .userOrders .cancel:hover {
     background-color: #FF0000;
     color: #FFF8E4;
 }
@@ -2782,6 +3176,175 @@ footer nav a {
 
 .customerTablet {
     display: none;
+}
+
+.editOrder {
+    margin-top: 80px;
+    margin-bottom: 120px;
+}
+
+.editOrder h1 span, .editOrder h2 span {
+    margin-left: 10px;
+    color: #FFF8E4;
+    background-color: #4E3822;
+    border-radius: 50px;
+    padding: 2px 5px;
+}
+
+.editOrder .mainData {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.editOrder .mainData h2, .editOrder .editData label {
+    color: #4E3822;
+    font-family: Montserrat-Medium;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.editOrder .editData {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.editOrder .editData .dataField {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editOrder .editData .dataField input, .editOrder .editData .dataField select {
+    font-size: 20px;
+    font-family: Montserrat-Regular;
+    color: #4E3822;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: 1px solid #4E3822;
+    border-radius: 10px;
+    outline: none;
+}
+
+.editOrder .editData .dataField input::placeholder {
+    opacity: 70%;
+    color: #4E3822;
+}
+
+.editOrder .editData .dataField h3 {
+    font-size: 20px;
+    color: #FF0000;
+    font-weight: normal;
+    font-family: Montserrat-Regular;
+}
+
+.editOrder .dataOptions {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.editOrder .dataOptions button {
+    background-color: #4E3822;
+    border: 2px solid #4E3822;
+    color: #FFF8E4;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 50%;
+    border-radius: 15px;
+    font-size: 24px;
+    font-family: Montserrat-Medium;
+    cursor: pointer;
+}
+
+.editOrder .dataOptions button:first-child {
+    background-color: #60462C;
+    border: 2px solid #60462C;
+}
+
+.editOrder .dataOptions button:hover {
+    background-color: transparent;
+    color: #4E3822;
+}
+
+.editOrder .editData .deliveryDate {
+    display: none;
+}
+
+.cancelOrder .modalExitBody h2 a {
+    color: #4E3822;
+    font-family: Montserrat-Semibold;
+}
+
+.cancelOrder .modalExitBody h2 a:hover {
+    text-decoration: underline;
+}
+
+.cancelOrder .cancelReason {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.cancelOrder .cancelReason h3 {
+    font-weight: normal;
+    font-size: 24px;
+    font-family: Montserrat-medium;
+    color: #4E3822;
+}
+
+.cancelOrder .cancelReason textarea {
+    background-color: transparent;
+    border: 2px solid #4E3822;
+    border-radius: 10px;
+    height: 200px;
+    font-size: 18px;
+    color: #4E3822;
+    font-family: Montserrat-Regular;
+    padding: 8px 16px;
+    outline: none;
+}
+
+.cancelOrder .cancelReason textarea::placeholder {
+    color: #4E3822;
+    opacity: 70%;
+}
+
+.cancelOrder .modalExitBody .modalExitOptions a {
+    font-size: 20px;
+}
+
+.cancelOrder .cancelReason h4 {
+    font-weight: normal;
+    font-size: 18px;
+    color: #FF0000;
+    font-family: Montserrat-regular;
+}
+
+.manageOrders .catalogHeader .search, .manageReviews .catalogHeader .search {
+    width: 300px;
+}
+
+.manageOrders .catalogHeader .filters button, .manageReviews .catalogHeader .filters button {
+    background-color: #4E3822;
+    color: #FFF8E4;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.manageOrders .catalogHeader .filters button:hover, .manageReviews .catalogHeader .filters button:hover {
+    background-color: #60462C;
 }
 
 .manageCategories .catalogHeader {
@@ -3251,6 +3814,7 @@ footer nav a {
     }
 
     .promText {
+        width: 100%;
         position: absolute;
         top: 0;
         left: 0;

@@ -1,6 +1,18 @@
 <?php
     $errors = [];
 
+    $purchase = 0;
+    $sql = "SELECT * FROM ordersDelivery WHERE status = ? AND user_id = ?";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute(['Завершен', $USER['id']]);
+    $ordersCount = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $purchase += count($ordersCount);
+    $sql = "SELECT * FROM ordersPickup WHERE status = ? AND user_id = ?";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute(['Завершен', $USER['id']]);
+    $ordersCount = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $purchase += count($ordersCount);
+
     if(isset($_POST['editName'])) {
         if(empty($_POST['newName'])) $errors['editName'] = 'Имя не может быть пустым';
         elseif(mb_strlen($_POST['newName']) > 20) $errors['editName'] = "Имя не должно быть длиннее 20 символов";
@@ -89,7 +101,7 @@
                 <div class="profileInfo">
                     <p><span>Email:</span> <?= $USER['email'] ?></p>
                     <p><span>Пол:</span> <?= $USER['sex'] ?></p>
-                    <p><span>Покупок:</span> <?= $USER['orders'] ?></p>
+                    <p><span>Покупок:</span> <?= $purchase ?></p>
                 </div>
             </div>
         </div>
@@ -99,14 +111,14 @@
             <a href="?page=managePanel">Панель управления</a>
             <?php } ?>
             <a href="?page=cart">Корзина</a>
-            <button id="userOrdersHistory" class="profileOption">История заказов</button>
-            <button id="userReviews" class="profileOption">Мои отзывы</button>
+            <a href="?page=profile&orders" id="userOrdersHistory">Мои заказы</a>
+            <a href="?page=profile&reviews" id="userReviews">Мои отзывы</a>
             <button>Выйти</button>
         </div>
 
         <?php 
-            include('userOrdersHistory.php');
-            include('userReviews.php'); 
+            if(isset($_GET['reviews'])) include('pages/user/userReviews.php'); 
+            if(isset($_GET['orders'])) include('pages/user/userOrdersHistory.php');
         ?>
         <!-- Конец профиля -->
     </main>

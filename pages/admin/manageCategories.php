@@ -6,7 +6,6 @@
     $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $count = 0;
 
-    if(isset($_POST['searchCategory']) and !empty($_POST['categoryId']))
     if(isset($_POST['createCategory'])) {
         $sql = "SELECT id FROM categories WHERE name = ?";
         $stmt = $connect->prepare($sql);
@@ -42,6 +41,10 @@
 
     <div class="categories">
     <?php foreach($categories as $category) {
+        $sql = "SELECT id FROM items WHERE category_id = ?";
+        $stmt = $connect->prepare($sql);
+        $stmt->execute([$category['id']]);
+        $itemsQuanity = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if(isset($_POST['searchCategory']) and $_POST['categoryId'] != $category['id']) continue;
         else {
         if($count > 0) { ?>
@@ -49,9 +52,9 @@
         <?php } ?>
         <div class="category">
             <h1><span class="id"><?= $category['id'] ?></span><?= $category['name'] ?></h1>
-            <p>Товаров: 12</p>
+            <p>Товаров: <?= count($itemsQuanity) ?></p>
             <div class="categoryOptions">
-                <a href="#">К товарам</a>
+                <a href="?page=catalog&category=<?= $category['id'] ?>">К товарам</a>
                 <a href="?page=managePanel&categories&edit=<?= $category['id'] ?>">Редактировать</a>
                 <a href="?page=managePanel&categories&deleteCategory=<?= $category['id'] ?>">Удалить</a>
             </div>

@@ -11,6 +11,7 @@
     <script src="js/profile.js" defer></script>
     <script src="js/managePanel.js" defer></script>
     <script src="js/main.js" defer></script>
+    <script src="js/review.js" defer></script>
     <title>Кинг</title>
 </head>
 
@@ -27,15 +28,17 @@
             if($_GET['page'] == 'reg') include('pages/user/reg.php');
             elseif($_GET['page'] == 'login') include('pages/user/login.php');
         }
-        
-        elseif($_GET['page'] == 'order') include('pages/order/order.php');
+        if($_GET['page'] == 'main') include('pages/components/main.php');
+        if($_GET['page'] == 'order') include('pages/order/order.php');
         if($_GET['page'] == 'catalog') include('pages/items/catalog.php');
-        elseif($_GET['page'] == 'category') include('pages/items/category.php');
-        elseif($_GET['page'] == 'item') include('pages/items/item.php');
+        if($_GET['page'] == 'cart') include('pages/order/cart.php');
+        if($_GET['page'] == 'item') include('pages/items/item.php');
         if($_GET['page'] == 'editItem') include('pages/admin/editItem.php');
         if($_GET['page'] == 'editPromotion') include('pages/admin/editPromotion.php');
         if($_GET['page'] == 'createPromotion') include('pages/admin/createPromotion.php');
         if($_GET['page'] == 'createItem') include('pages/admin/createItem.php');
+        if($_GET['page'] == 'orderSuccess') include('pages/order/orderSuccess.php');
+        if($_GET['page'] == 'editOrder') include('pages/admin/editOrder.php');
     }
     else include('pages/components/main.php');
 ?>

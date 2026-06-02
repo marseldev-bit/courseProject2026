@@ -30,3 +30,27 @@ category.addEventListener('change', function() {
         })
     }
 })
+
+
+// Слайдер акций
+let slider = document.querySelector('.mainPage .promotions');
+let forward = document.querySelector('.mainPage .forward');
+let back = document.querySelector('.mainPage .back');
+let currentIndex = 0;
+
+function slide(index) {
+    if(index < 0) index = 0;
+    else if(index >= slider.children.length) index = slider.children.length - 1;
+    currentIndex = index;
+
+    let translate = document.querySelector('.mainPage .prom').clientWidth + 40;
+    slider.style.transform = `translateX(-${translate * index}px)`;
+}
+
+back.addEventListener('click', () => {
+    slide(currentIndex - 1);
+})
+
+forward.addEventListener('click', () => {
+    slide(currentIndex + 1);
+})

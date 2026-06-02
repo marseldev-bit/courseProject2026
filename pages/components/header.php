@@ -17,7 +17,13 @@
         </nav>
 
         <div class="options">
-            <a href="?page=cart">
+            <a 
+            <?php if(isset($USER['id'])) { ?>
+            href="?page=cart"
+            <?php } else { ?>
+            href="?page=main&auth"
+            <?php } ?>
+            >
                 <div class="option">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="#F4E3B2" xmlns="http://www.w3.org/2000/svg">
                         <path

@@ -126,7 +126,7 @@
             <p><?= $item['id'] ?></p>
         </div>
 
-        <p class="mobileId cont">ID товара: 1</p>
+        <p class="mobileId cont">ID товара: <?= $item['id'] ?></p>
 
         <form class="editItem cont" method="post" enctype="multipart/form-data">
             <div class="itemField">
