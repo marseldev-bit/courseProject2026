@@ -14,12 +14,9 @@
             $isEmailUsed = $stmt->fetch();
             if($isEmailUsed) $errors['email'] = "Пользователь с такой почтой уже зарегистрирован";
         }
-
         if(!isset($_POST['sex'])) $errors['sex'] = "Укажите Ваш пол";
-
         if(empty($_POST['password'])) $errors['password'] = "Пароль не может быть пустым";
         elseif(mb_strlen($_POST['password']) < 6) $errors['password'] = "Пароль должен содержать не менее 6 символов";
-
         if(empty($_POST['passwordConfirm'])) $errors['passwordConfirm'] = "Повторите пароль";
         elseif($_POST['password'] != $_POST['passwordConfirm']) $errors['passwordConfirm'] = "Пароли не совпадают";
         elseif(empty($errors)) {
@@ -58,7 +55,7 @@
 
             <?php if(isset($errors['email'])) { ?>
             <div class="field errorField">
-                <label>Укажите электронную почт</label>
+                <label>Укажите электронную почту</label>
                 <div class="error">
                     <input type="text" placeholder="chess@gmail.com" name="email">
                     <p><?= $errors['email'] ?></p>

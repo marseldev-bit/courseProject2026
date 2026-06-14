@@ -9,9 +9,9 @@
         </div>
 
         <nav>
-            <a href="#advantage">О компании</a>
-            <a href="#catalog">Каталог</a>
-            <a href="#promotion">Акции</a>
+            <a href="?page=main#advantage">О компании</a>
+            <a href="?page=catalog">Каталог</a>
+            <a href="?page=main#promotion">Акции</a>
             <a href="#contact">Контакты</a>
         </nav>
 
@@ -30,6 +30,8 @@
                 <h1>Адрес</h1>
                 <p>Казань, Баумана 36</p>
             </div>
+
+            <a href="assets/privacy.pdf" target="_blank">Политика конфиденциальности</a>
         </div>
 
         <div class="mobileCopyright">

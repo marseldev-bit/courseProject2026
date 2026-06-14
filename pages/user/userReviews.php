@@ -282,7 +282,7 @@
             <a href="?page=profile&reviews"><p>⨉</p></a>
             <div class="modalExitBody">
                 <h1>Ваш отзыв</h1>
-                <div class="myReview cont">
+                <div class="myReview">
                     <div class="rating">
                         <h2>Оценка: </h2>
                         <div class="stars">

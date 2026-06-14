@@ -231,7 +231,7 @@
                 </div>
                 <div class="reviewMobileAuthor">
                     <h2>Автор:</h2>
-                    <h1><span class="id"><?= $user['id'] ?></span><?= $user['id'] ?></h1>
+                    <h1><span class="id"><?= $user['id'] ?></span><?= $user['name'] ?></h1>
                 </div>
                 <div class="reviewMobileRate">
                     <h2>Оценка:</h2>
@@ -316,7 +316,7 @@
                 </div>
                 <div class="reviewMobileAuthor">
                     <h2>Автор:</h2>
-                    <h1><span class="id"><?= $user['id'] ?></span><?= $user['id'] ?></h1>
+                    <h1><span class="id"><?= $user['id'] ?></span><?= $user['name'] ?></h1>
                 </div>
                 <div class="reviewMobileRate">
                     <h2>Оценка:</h2>

@@ -30,7 +30,8 @@
         elseif(empty($_POST['searchItem']) and $_POST['category'] == 'Все') echo '<script>location.href="?page=catalog"</script>';
     }
     
-    if(isset($_POST['addToCart'])) {
+    if(isset($_POST['addToCart']) and empty($USER['id'])) echo '<script>location.href="?page=catalog&auth"</script>';
+    elseif(isset($_POST['addToCart']) and !empty($USER['id'])) {
         $sql = "SELECT price FROM items WHERE id = ?";
         $stmt = $connect->prepare($sql);
         $stmt->execute([$_POST['cartItemId']]);
@@ -74,8 +75,8 @@
                 </form>
             </div>
 
-            <div class="catalogHeaderMobile">
-                <form class="filters" method="post">
+            <form method="post" class="catalogHeaderMobile">
+                <div class="filters" method="post">
                     <h1 class="title">Каталог</h1>
                     <select name="category">
                         <option>Все</option>
@@ -84,12 +85,13 @@
                         <?php if(isset($_GET['category']) and (int)$_GET['category'] == (int)$c['id']) { ?>selected<?php } ?>><?= $c['name'] ?></option>
                         <?php } ?>
                     </select>
-                </form>
-                <div class="search">
-                    <input type="text" placeholder="Поиск товара...">
-                    <img src="../assets/images/search.png">
                 </div>
-            </div>
+                <div class="search">
+                    <input type="text" placeholder="Поиск товара..." name="searchItem"
+                        <?php if(isset($_GET['search'])) { ?> value="<?= $_GET['search'] ?>"<?php } ?>>
+                </div>
+                <button name="toFilter">Применить</button>
+            </form>
 
             <?php
                 if(!isset($_GET['search'])) {
@@ -129,7 +131,12 @@
                             </div>
                         </div>
                         <form class="buy" method="post">
-                            <button>Купить</button>
+                            <a
+                            <?php if(empty($USER['id'])) { ?>href="?page=catalog&auth"
+                            <?php } else { ?>
+                            href="?page=order&buy=<?= $item['id'] ?>"
+                            <?php } ?>
+                            >Купить</a>
                             <input type="hidden" name="cartItemId" value="<?= $item['id'] ?>">
                             <button 
                             <?php 
@@ -142,7 +149,7 @@
                             <path d="M49.1196 5.24316L21.3667 32.9959L10.8804 22.5096L0 33.3899L10.4864 43.8764L21.3667 54.7564L32.2468 43.8764L60 16.1233L49.1196 5.24316Z" fill="#4E3822"/>
                             </svg></button>
                             <?php } else { ?>
-                            <button name="removeFromCart"><svg width="38" height="38" viewBox="0 0 38 38" fill="#FFF8E4"
+                            <button name="addToCart"><svg width="38" height="38" viewBox="0 0 38 38" fill="#FFF8E4"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                     d="M35.5107 29.0172L32.0014 6.78654C31.8445 5.80023 31.3412 4.90212 30.5819 4.25333C29.8226 3.60454 28.857 3.24753 27.8583 3.24634H9.24519C8.24647 3.24753 7.28085 3.60454 6.52157 4.25333C5.76228 4.90212 5.25902 5.80023 5.10206 6.78654L1.59278 29.0172C1.5003 29.6151 1.53818 30.2259 1.70382 30.8078C1.86947 31.3898 2.15897 31.929 2.55247 32.3886C2.94598 32.8482 3.4342 33.2172 3.98367 33.4705C4.53314 33.7238 5.13087 33.8553 5.7359 33.856H31.3676C31.9726 33.8553 32.5704 33.7238 33.1198 33.4705C33.6693 33.2172 34.1575 32.8482 34.551 32.3886C34.9445 31.929 35.234 31.3898 35.3997 30.8078C35.5653 30.2259 35.6032 29.6151 35.5107 29.0172ZM26.2505 12.3055C25.3259 13.4587 24.1541 14.3895 22.8216 15.0291C21.489 15.6686 20.0298 16.0007 18.5517 16.0007C17.0737 16.0007 15.6145 15.6686 14.2819 15.0291C12.9494 14.3895 11.7776 13.4587 10.853 12.3055C10.722 12.1401 10.6249 11.9505 10.5673 11.7475C10.5096 11.5445 10.4925 11.3322 10.5169 11.1226C10.5413 10.913 10.6068 10.7103 10.7095 10.526C10.8123 10.3417 10.9503 10.1794 11.1158 10.0485C11.2812 9.91753 11.4709 9.82046 11.6738 9.7628C11.8768 9.70514 12.0892 9.68802 12.2987 9.71242C12.5083 9.73683 12.7111 9.80228 12.8954 9.90503C13.0796 10.0078 13.2419 10.1458 13.3728 10.3113C13.997 11.0837 14.786 11.7067 15.6821 12.1347C16.5782 12.5627 17.5587 12.7848 18.5517 12.7848C19.5448 12.7848 20.5253 12.5627 21.4214 12.1347C22.3175 11.7067 23.1065 11.0837 23.7306 10.3113C23.8616 10.1458 24.0238 10.0078 24.2081 9.90503C24.3924 9.80228 24.5952 9.73683 24.8048 9.71242C25.0143 9.68802 25.2267 9.70514 25.4297 9.7628C25.6326 9.82046 25.8223 9.91753 25.9877 10.0485C26.1532 10.1794 26.2912 10.3417 26.394 10.526C26.4967 10.7103 26.5622 10.913 26.5866 11.1226C26.611 11.3322 26.5939 11.5445 26.5362 11.7475C26.4785 11.9505 26.3815 12.1401 26.2505 12.3055Z" />
@@ -184,7 +191,12 @@
                             </div>
                         </div>
                         <form class="buy" method="post">
-                            <button>Купить</button>
+                            <a
+                            <?php if(empty($USER['id'])) { ?>href="?page=catalog&auth"
+                            <?php } else { ?>
+                            href="?page=order&buy=<?= $item['id'] ?>"
+                            <?php } ?>
+                            >Купить</a>
                             <input type="hidden" name="cartItemId" value="<?= $item['id'] ?>">
                             <button 
                             <?php 
@@ -217,3 +229,19 @@
     <?php include('pages/components/footerBlock.php'); ?>
     <!-- Конец подвала -->
 </body>
+
+<?php if(isset($_GET['auth'])) { ?>
+<div class="modalExit active auth">
+        <form method="post" class="modalExitWindow">
+            <a href="?page=catalog"><p>⨉</p></a>
+            <div class="modalExitBody">
+                <h1>Удобнее с аккаунтом</h1>
+                <h2>Чтобы добавлять товары в корзину войдите или создайте профиль. Это займёт меньше минуты.</h2>
+                <div class="modalExitOptions">
+                    <a href="?page=login">Войти</a>
+                    <a href="?page=reg">Регистрация</a>
+                </div>
+            </div>
+        </form>
+    </div>
+<?php } ?>

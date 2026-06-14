@@ -44,7 +44,7 @@
 
         if(empty($errors)) {
             if($orderType) {
-                if(empty($_POST['cooment'])) $comment = null;
+                if(empty($_POST['comment'])) $comment = null;
                 else $comment = $_POST['comment'];
                 if(empty($_POST['delivery_date'])) {
                     $sql = "UPDATE ordersDelivery SET status = ?, delivery_date = ?, phone = ?, comment = ?, quanity = ?, address = ?, picked_date = ?, time = ? WHERE id = ?";
@@ -58,7 +58,7 @@
                 }
             }
             else {
-                if(empty($_POST['cooment'])) $comment = null;
+                if(empty($_POST['comment'])) $comment = null;
                 else $comment = $_POST['comment'];
                 if(empty($_POST['delivery_date'])) {
                     $sql = "UPDATE ordersPickup SET status = ?, phone = ?, comment = ?, quanity = ?, predict_date = ? WHERE id = ?";

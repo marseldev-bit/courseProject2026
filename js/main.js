@@ -22,11 +22,20 @@ headerModalBtn.addEventListener('click', () => {
 let cards = document.querySelectorAll('.mainPage .catalogBlock .card');
 let category = document.querySelector('.mainPage .catalogHeader select');
 
+cards.forEach((card, i) => {
+    if(i > 5) card.classList.add('disable');
+})
+
 category.addEventListener('change', function() {
     cards.forEach((c) => { c.classList.remove('disable'); })
     if(category.value != 'Все') {
         cards.forEach((card) => { 
             if(card.querySelector('.item .price p').textContent != category.value) card.classList.add('disable');
+        })
+    }
+    else {
+        cards.forEach((card, i) => {
+            if(i > 5) card.classList.add('disable');
         })
     }
 })

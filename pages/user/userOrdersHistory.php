@@ -269,7 +269,25 @@ if(!empty($arrived)) { $count = 0; ?>
                     <a href="?page=profile&orders&pickup=<?= $c['id'] ?>">Подробности</a>
                     <?php } ?>
                     <a href="?page=item&id=<?= $item['id'] ?>">К товару</a>
-                    <a href="#">Оставить отзыв</a>
+                    <?php 
+                        $sql = "SELECT * FROM ordersDelivery WHERE item_id = ? AND user_id = ? AND status = ?";
+                        $stmt = $connect->prepare($sql);
+                        $stmt->execute([$item['id'], $USER['id'], 'Завершен']);
+                        $ordersDelivery = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                        $sql = "SELECT * FROM ordersPickup WHERE item_id = ? AND user_id = ? AND status = ?";
+                        $stmt = $connect->prepare($sql);
+                        $stmt->execute([$item['id'], $USER['id'], 'Завершен']);
+                        $ordersPickup = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                        $sql = "SELECT * FROM reviews WHERE item_id = ? AND user_id = ?";
+                        $stmt = $connect->prepare($sql);
+                        $stmt->execute([$item['id'], $USER['id']]);
+                        $issetReview = $stmt->fetch(PDO::FETCH_ASSOC);
+                        if(empty($issetReview) and (!empty($ordersDelivery) or !empty($ordersPickup))) {
+                    ?>
+                    <a href="?page=profile&orders&review=<?= $item['id'] ?>">Отзыв</a>
+                    <?php } ?>
                 </div>
             </div>
             <?php $count += 1; } ?>
@@ -456,7 +474,7 @@ if(!empty($arrived)) { $count = 0; ?>
             <a href="?page=profile&orders"><p>⨉</p></a>
             <div class="modalExitBody">
                 <h1>Ваш отзыв</h1>
-                <div class="myReview cont">
+                <div class="myReview">
                     <div class="rating">
                         <h2>Оценка: </h2>
                         <div class="stars">

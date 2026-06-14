@@ -1,4 +1,4 @@
-<div class="orderForm orderDelivery cont active">
+<div class="orderForm orderDelivery active">
     <div class="orderAddress">
         <div class="orderField">
             <label>Укажите адрес доставки</label>

@@ -118,7 +118,12 @@
                 </div>
 
                 <form class="itemBuy" method="post">
-                    <a href="#">Купить • <?= $item['price'] ?> ₽</a>
+                    <a
+                    <?php if(empty($USER['id'])) { ?>href="?page=item&id=<?= $item['id'] ?>&auth"
+                    <?php } else { ?>
+                    href="?page=order&buy=<?= $item['id'] ?>"
+                    <?php } ?>
+                    >Купить • <?= $item['price'] ?> ₽</a>
                     <input type="hidden" name="cartItemId" value="<?= $item['id'] ?>">
                     <button 
                         <?php 
@@ -243,7 +248,12 @@
                             </div>
                         </div>
                         <form class="buy" method="post">
-                            <button>Купить</button>
+                            <a
+                            <?php if(empty($USER['id'])) { ?>href="?page=item&id=<?= $item['id'] ?>&auth"
+                            <?php } else { ?>
+                            href="?page=order&buy=<?= $similarItem['id'] ?>"
+                            <?php } ?>
+                            >Купить</a>
                             <input type="hidden" name="cartItemId" value="<?= $similarItem['id'] ?>">
                             <button 
                             <?php 
@@ -300,7 +310,7 @@
             <a href="?page=item&id=<?= $item['id'] ?>"><p>⨉</p></a>
             <div class="modalExitBody">
                 <h1>Ваш отзыв</h1>
-                <div class="myReview cont">
+                <div class="myReview">
                     <div class="rating">
                         <h2>Оценка: </h2>
                         <div class="stars">

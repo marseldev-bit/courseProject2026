@@ -10,9 +10,9 @@
         </a>
 
         <nav>
-            <a href="#advantage">О компании</a>
-            <a href="#catalog">Каталог</a>
-            <a href="#promotion">Акции</a>
+            <a href="?page=main#advantage">О компании</a>
+            <a href="?page=catalog">Каталог</a>
+            <a href="?page=main#promotion">Акции</a>
             <a href="#contact">Контакты</a>
         </nav>
 
@@ -56,16 +56,21 @@
 
 <div class="burgerMenu" id="burger">
     <nav>
-        <a href="#advantage">О компании</a>
-        <a href="#catalog">Каталог</a>
-        <a href="#promotion">Акции</a>
+        <a href="?page=main#advantage">О компании</a>
+        <a href="?page=catalog">Каталог</a>
+        <a href="?page=main#promotion">Акции</a>
         <a href="#contact">Контакты</a>
+        <?php if(isset($USER['id'])) { ?>
         <a href="?page=cart">Корзина</a>
+        <a href="?page=profile">Профиль</a>
+        <?php } ?>
     </nav>
+    <?php if(empty($USER['id'])) { ?>
     <div class="burgerReg">
         <a href="?page=reg">Регистрация</a>
         <a href="?page=login">Войти</a>
     </div>
+    <?php } ?>
 </div>
 
 <?php if(!isset($_SESSION['userID'])) { ?>

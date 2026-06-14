@@ -22,23 +22,25 @@
     if(isset($_GET['page'])) {
         if(isset($_SESSION['userID'])) {
             if($_GET['page'] == 'profile') include('pages/user/profile.php');
-            elseif($_GET['page'] == 'managePanel' and $USER['isAdmin']) include('pages/admin/managePanel.php');
+            if($_GET['page'] == 'order') include('pages/order/order.php');
+            if($_GET['page'] == 'cart') include('pages/order/cart.php');
+            if($_GET['page'] == 'orderSuccess') include('pages/order/orderSuccess.php');
+            elseif($USER['isAdmin']) {
+                if($_GET['page'] == 'managePanel') include('pages/admin/managePanel.php');
+                if($_GET['page'] == 'editOrder') include('pages/admin/editOrder.php');
+                if($_GET['page'] == 'editItem') include('pages/admin/editItem.php');
+                if($_GET['page'] == 'editPromotion') include('pages/admin/editPromotion.php');
+                if($_GET['page'] == 'createPromotion') include('pages/admin/createPromotion.php');
+                if($_GET['page'] == 'createItem') include('pages/admin/createItem.php');
+            }
         }
         elseif(!isset($_SESSION['userID'])) {
             if($_GET['page'] == 'reg') include('pages/user/reg.php');
             elseif($_GET['page'] == 'login') include('pages/user/login.php');
         }
         if($_GET['page'] == 'main') include('pages/components/main.php');
-        if($_GET['page'] == 'order') include('pages/order/order.php');
         if($_GET['page'] == 'catalog') include('pages/items/catalog.php');
-        if($_GET['page'] == 'cart') include('pages/order/cart.php');
         if($_GET['page'] == 'item') include('pages/items/item.php');
-        if($_GET['page'] == 'editItem') include('pages/admin/editItem.php');
-        if($_GET['page'] == 'editPromotion') include('pages/admin/editPromotion.php');
-        if($_GET['page'] == 'createPromotion') include('pages/admin/createPromotion.php');
-        if($_GET['page'] == 'createItem') include('pages/admin/createItem.php');
-        if($_GET['page'] == 'orderSuccess') include('pages/order/orderSuccess.php');
-        if($_GET['page'] == 'editOrder') include('pages/admin/editOrder.php');
     }
     else include('pages/components/main.php');
 ?>

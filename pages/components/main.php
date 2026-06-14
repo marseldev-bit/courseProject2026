@@ -99,7 +99,6 @@
                         $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         $count = 0;
                         foreach($items as $item) {
-                            if($count == 6) break;
                             $sql = "SELECT imgPath FROM itemGallery WHERE item_id = ?";
                             $stmt = $connect->prepare($sql);
                             $stmt->execute([$item['id']]);
@@ -121,7 +120,12 @@
                             </div>
                         </div>
                         <form class="buy" method="post">
-                            <button>Купить</button>
+                            <a
+                            <?php if(empty($USER['id'])) { ?>href="?page=main&auth"
+                            <?php } else { ?>
+                            href="?page=order&buy=<?= $item['id'] ?>"
+                            <?php } ?>
+                            >Купить</a>
                             <input type="hidden" name="cartItemId" value="<?= $item['id'] ?>">
                             <?php 
                             $sql = "SELECT id FROM cart WHERE user_id = ? AND item_id = ?";
@@ -318,6 +322,8 @@
                 <h1>Адрес</h1>
                 <p>Казань, Баумана 36</p>
             </div>
+
+            <a href="assets/privacy.pdf" target="_blank">Политика конфиденциальности</a>
         </div>
 
         <div class="mobileCopyright">

@@ -93,22 +93,23 @@
                 $stmt = $connect->prepare($sql);
                 $stmt->execute([$item['id']]);
                 $itemChars = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                if(empty($itemChars)) {
-                    foreach($chars as $char) {
-                        $sql = "INSERT INTO itemChars (item_id, char_id, value) VALUES (?, ?, ?)";
-                        $stmt = $connect->prepare($sql);
-                        $stmt->execute([$item['id'], $char['id'], $_POST['char'][$char['id']]]);
-                        echo '<script>location.href="?page=managePanel"</script>';
-                    }
-                }
-                else {
-                    foreach($chars as $char) {
+                foreach($chars as $char) {
+                    $sql = "SELECT id FROM itemChars WHERE item_id = ? AND char_id = ?";
+                    $stmt = $connect->prepare($sql);
+                    $stmt->execute([$item['id'], $char['id']]);
+                    $exists = $stmt->fetch(PDO::FETCH_ASSOC);
+                    if($exists) {
                         $sql = "UPDATE itemChars SET value = ? WHERE item_id = ? AND char_id = ?";
                         $stmt = $connect->prepare($sql);
                         $stmt->execute([$_POST['char'][$char['id']], $item['id'], $char['id']]);
-                        echo '<script>location.href="?page=managePanel"</script>';
+                    }
+                    else {
+                        $sql = "INSERT INTO itemChars (item_id, char_id, value) VALUES (?, ?, ?)";
+                        $stmt = $connect->prepare($sql);
+                        $stmt->execute([$item['id'], $char['id'], $_POST['char'][$char['id']]]);
                     }
                 }
+                echo '<script>location.href="?page=managePanel"</script>';
             }  
         }
     }
